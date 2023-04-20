@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: 1627956728}
   - component: {fileID: 1627956727}
   - component: {fileID: 1627956731}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -609,7 +609,9 @@ MonoBehaviour:
   - {fileID: 1282599469}
   - {fileID: 1075044250}
   - {fileID: 1880133895}
+  KeyToOpen: 101
   TimeWait: 0.2
+  NbBoucle: 4
 --- !u!1 &1880133895
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,7 +729,9 @@ GameObject:
   - component: {fileID: 2006521289}
   - component: {fileID: 2006521288}
   - component: {fileID: 2006521291}
-  m_Layer: 0
+  - component: {fileID: 2006521293}
+  - component: {fileID: 2006521292}
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -851,3 +855,38 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &2006521292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006521287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2b97c68a503a2419188875d3b884b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SensX: 400
+  SensY: 400
+--- !u!65 &2006521293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006521287}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
