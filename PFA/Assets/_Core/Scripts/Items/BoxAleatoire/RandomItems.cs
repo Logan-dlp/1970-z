@@ -22,15 +22,8 @@ public class RandomItems : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyToOpen))
         {
-            BoxSysteme();
+            StartCoroutine("AnimationAleatoire");
         }
-    }
-
-    void BoxSysteme()
-    {
-        Debug.Log("Box OK !");
-        UnSpawnArmes();
-        StartCoroutine("AnimationAleatoire");
     }
 
     /// Retourne un objet aléatoire du tableau "Armes"
@@ -50,6 +43,7 @@ public class RandomItems : MonoBehaviour
 
     IEnumerator AnimationAleatoire()
     {
+        UnSpawnArmes();
         for (int i = 0; i < NbBoucle; i++)
         {
             for (int j = 0; j < Armes.Length; j++)
