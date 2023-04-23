@@ -8,7 +8,7 @@ public class ZombiesData : ScriptableObject
     public string Name;
 
     public GameObject Skin;
-    
+
     /*
      * à modifier si il a plusieurs animation untiliser directement un tableau
      *            voir si c'est bien "Animator" à utiliser
