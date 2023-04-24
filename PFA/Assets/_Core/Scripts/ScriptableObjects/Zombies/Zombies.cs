@@ -16,10 +16,16 @@ public class Zombies : MonoBehaviour
     private GameObject Player;
     private NavMeshAgent agent;
 
+    private float life;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         agent.baseOffset = 1;
+        agent.speed = DataSources.Speed;
+
+        life = DataSources.Life;
+        
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -32,6 +38,7 @@ public class Zombies : MonoBehaviour
     private void Update()
     {
         LePlusProche();
+        agent.SetDestination(Player.transform.position);
     }
 
     /*
@@ -43,13 +50,21 @@ public class Zombies : MonoBehaviour
     {
         foreach (GameObject _player in gameManager.Player)
         {
-            float _posP = Mathf.Abs(_player.transform.position.x + _player.transform.position.y);
-            float _pos = Mathf.Abs(transform.position.x + transform.position.y);
+            float _posP = Mathf.Abs(_player.transform.position.x) + Mathf.Abs(_player.transform.position.y);
+            float _pos = Mathf.Abs(transform.position.x) + Mathf.Abs(transform.position.y);
             if (posPlusProche == null || _pos - _posP < posPlusProche)
             {
                 posPlusProche = _pos + _posP;
                 Player = _player;
             }
+        }
+    }
+
+    void Death()
+    {
+        if (life <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
