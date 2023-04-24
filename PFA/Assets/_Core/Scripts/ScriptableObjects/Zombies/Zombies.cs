@@ -11,8 +11,7 @@ public class Zombies : MonoBehaviour
     private GameManager gameManager;
     
     public ZombiesData DataSources;
-
-    private float posPlusProche;
+    
     private GameObject Player;
     private NavMeshAgent agent;
 
@@ -37,8 +36,8 @@ public class Zombies : MonoBehaviour
 
     private void Update()
     {
-        LePlusProche();
-        agent.SetDestination(Player.transform.position);
+        GoToPlayer();
+        Death();
     }
 
     /*
@@ -46,18 +45,27 @@ public class Zombies : MonoBehaviour
      * le suivre
      * Arrivé a une certaine distance Infliger des dégats à la personne suivit (et faire une autre animation que de marcher)
      */
-    void LePlusProche()
+    void GoToPlayer()
     {
-        foreach (GameObject _player in gameManager.Player)
+        if (Player)
         {
-            float _posP = Mathf.Abs(_player.transform.position.x) + Mathf.Abs(_player.transform.position.y);
-            float _pos = Mathf.Abs(transform.position.x) + Mathf.Abs(transform.position.y);
-            if (posPlusProche == null || _pos - _posP < posPlusProche)
+            foreach (GameObject _player in gameManager.Player)
             {
-                posPlusProche = _pos + _posP;
+                if (Vector3.Distance(_player.transform.position, transform.position) < Vector3.Distance(Player.transform.position, transform.position))
+                {
+                    Player = _player;
+                }
+            }
+        }
+        else
+        {
+            foreach (GameObject _player in gameManager.Player)
+            {
                 Player = _player;
             }
         }
+        
+        agent.SetDestination(Player.transform.position);
     }
 
     void Death()
