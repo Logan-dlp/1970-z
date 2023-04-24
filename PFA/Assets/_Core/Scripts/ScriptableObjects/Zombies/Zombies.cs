@@ -24,6 +24,7 @@ public class Zombies : MonoBehaviour
         agent.speed = DataSources.Speed;
         agent.angularSpeed = 100;
         agent.acceleration = 100;
+        agent.stoppingDistance = DataSources.StopDistance;
 
         life = DataSources.Life;
         

@@ -17,5 +17,6 @@ MonoBehaviour:
   Animation: {fileID: 0}
   Life: 100
   Degat: 10
-  Speed: 15
+  Speed: 2.5
+  StopDistance: 3
   SoundZombie: {fileID: 0}

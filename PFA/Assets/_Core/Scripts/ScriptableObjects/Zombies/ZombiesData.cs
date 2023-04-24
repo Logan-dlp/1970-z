@@ -18,6 +18,7 @@ public class ZombiesData : ScriptableObject
     public float Life;
     public float Degat;
     public float Speed;
+    public float StopDistance = 3;
 
     public AudioSource SoundZombie;
 }
