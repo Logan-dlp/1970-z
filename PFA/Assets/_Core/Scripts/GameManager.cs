@@ -11,6 +11,6 @@ public class GameManager : MonoBehaviour
 
     public void Debug()
     {
-        UnityEngine.Debug.Log(Player.Count);
+        return;
     }
 }

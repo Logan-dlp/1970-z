@@ -22,6 +22,8 @@ public class Zombies : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.baseOffset = 1;
         agent.speed = DataSources.Speed;
+        agent.angularSpeed = 100;
+        agent.acceleration = 100;
 
         life = DataSources.Life;
         
@@ -42,7 +44,7 @@ public class Zombies : MonoBehaviour
 
     /*
      * Trouver le joueur le plus proche (en boucle) ✅
-     * le suivre
+     * le suivre ✅
      * Arrivé a une certaine distance Infliger des dégats à la personne suivit (et faire une autre animation que de marcher)
      */
     void GoToPlayer()
