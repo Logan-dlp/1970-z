@@ -40,12 +40,11 @@ public class Zombies : MonoBehaviour
     private void Update()
     {
         GoToPlayer();
+        StartCoroutine("DegatTime");
         Death();
     }
 
     /*
-     * Trouver le joueur le plus proche (en boucle) ✅
-     * le suivre ✅
      * Arrivé a une certaine distance Infliger des dégats à la personne suivit (et faire une autre animation que de marcher)
      */
     void GoToPlayer()
@@ -76,6 +75,18 @@ public class Zombies : MonoBehaviour
         if (life <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    IEnumerator DegatTime()
+    {
+        if (Vector3.Distance(Player.transform.position, transform.position) <= agent.stoppingDistance)
+        {
+            yield return new WaitForSeconds(DataSources.DegatTime);
+            gameManager.Player.Remove(Player);// ne pas oublier de le suprimer de la liste a la suppression
+            Destroy(Player);
+            //Debug.Log(Player + " " + DataSources.Degat);
+            StopCoroutine("DegatTime");
         }
     }
 }

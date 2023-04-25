@@ -6,7 +6,6 @@ using UnityEngine;
 public class ZombiesData : ScriptableObject
 {
     public string Name;
-
     public GameObject Skin;
 
     /*
@@ -17,8 +16,9 @@ public class ZombiesData : ScriptableObject
 
     public float Life;
     public float Degat;
+    public float DegatTime;
     public float Speed;
-    public float StopDistance = 3;
+    public float StopDistance;
 
     public AudioSource SoundZombie;
 }

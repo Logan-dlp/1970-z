@@ -135,9 +135,9 @@ GameObject:
   - component: {fileID: 79414435}
   - component: {fileID: 79414434}
   - component: {fileID: 79414433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,9 +242,9 @@ GameObject:
   - component: {fileID: 284150283}
   - component: {fileID: 284150282}
   - component: {fileID: 284150281}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
