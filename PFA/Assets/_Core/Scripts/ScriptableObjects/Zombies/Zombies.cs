@@ -34,7 +34,6 @@ public class Zombies : MonoBehaviour
     private void Start()
     {
         Instantiate(DataSources.Skin, transform);
-        gameManager.Debug();
     }
 
     private void Update()
@@ -74,6 +73,7 @@ public class Zombies : MonoBehaviour
     {
         if (life <= 0)
         {
+            gameManager.NbZombies--;
             Destroy(gameObject);
         }
     }
@@ -83,9 +83,8 @@ public class Zombies : MonoBehaviour
         if (Vector3.Distance(Player.transform.position, transform.position) <= agent.stoppingDistance)
         {
             yield return new WaitForSeconds(DataSources.DegatTime);
-            gameManager.Player.Remove(Player);// ne pas oublier de le suprimer de la liste a la suppression
-            Destroy(Player);
-            //Debug.Log(Player + " " + DataSources.Degat);
+            float _playerLife = Player.GetComponent<Player>().PlayerLife;
+            _playerLife -= DataSources.Degat;
             StopCoroutine("DegatTime");
         }
     }

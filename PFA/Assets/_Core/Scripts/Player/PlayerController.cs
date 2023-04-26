@@ -48,13 +48,12 @@ public class PlayerController : MonoBehaviour
 
         if (sprint)
         {
-            Debug.Log(sprint);
-            // Calcul du déplacement du joueur quand il court
+            // Calcul du dÃ©placement du joueur quand il court
             characterController.Move(_move * 2 * Time.deltaTime);
         }
         else
         {
-            // Calcul du déplacement du joueur quand il marche
+            // Calcul du dÃ©placement du joueur quand il marche
             characterController.Move(_move * Time.deltaTime);
         }
     }
@@ -63,10 +62,10 @@ public class PlayerController : MonoBehaviour
     {
         // Rotation horizontale du joueur
         transform.Rotate(lookInputs.x * sensitivity.x * Time.deltaTime * Vector3.up);
-        // Calcul de la rotation verticale de la caméra
+        // Calcul de la rotation verticale de la camÃ©ra
         float _camAngleX = Playercam.localEulerAngles.x - lookInputs.y * Time.deltaTime * sensitivity.y;
 
-        // Limite la rotation verticale de la caméra à un certain angle
+        // Limite la rotation verticale de la camÃ©ra Ã  un certain angle
         if (_camAngleX <= 90f)
         {
             _camAngleX = _camAngleX > 0 ? Mathf.Clamp(_camAngleX, 0f, 85f) : _camAngleX;
@@ -77,18 +76,18 @@ public class PlayerController : MonoBehaviour
             _camAngleX = Mathf.Clamp(_camAngleX, 275f, 360f);
         }
 
-        // Ajout d'une interpolation pour la rotation verticale de la caméra
+        // Ajout d'une interpolation pour la rotation verticale de la camÃ©ra
         float targetCamAngleX = _camAngleX;
         float joystickMagnitude = lookInputs.magnitude;
         if (joystickMagnitude > 0.2f)
         {
-            // Modifier la vitesse maximale d'interpolation si nécessaire
+            // Modifier la vitesse maximale d'interpolation si nÃ©cessaire
             float maxSpeed = 5f;
             float speed = maxSpeed * joystickMagnitude;
             targetCamAngleX = Mathf.Lerp(Playercam.localEulerAngles.x, _camAngleX, Time.fixedDeltaTime * speed);
         }
 
-        // Applique la rotation à la caméra
+        // Applique la rotation Ã  la camÃ©ra
         Playercam.localEulerAngles = Vector3.right * _camAngleX;
     }
 
