@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
 
   
-    private void Awake()
+    private void Start()
     {
         characterController = GetComponent<CharacterController>();
         Playercam = transform.Find("Player_cam");
