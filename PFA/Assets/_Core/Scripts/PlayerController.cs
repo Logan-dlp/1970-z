@@ -1,34 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Settings Player")]
-    [SerializeField] private float speed = 1f;
-    [SerializeField] private float jumpForce = 1f;
+    [SerializeField] private float speed = 4f;
+    [SerializeField] private bool sprint = false;
+    [SerializeField] private float jumpForce = 5f;
     [SerializeField] private Vector2 sensitivity = Vector2.one;
     [SerializeField] private Transform Playercam;
+    Animator animator;
 
     private Vector3 velocity;
 
-    private Vector2 moveInputs, lookInputs, runInputs;
+    private Vector2 moveInputs, lookInputs;
     private bool jumpPerformed;
 
     private CharacterController characterController;
 
-    public float Valeur
-    {
-        get { return speed; }
-        set { speed = value; }
-    }
-
+  
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-       // Playercam = GetComponent<>();
+        animator = GetComponent<Animator>();
+        //Playercam = GetComponent<>();
     }
 
     private void Update()
@@ -47,30 +46,40 @@ public class PlayerController : MonoBehaviour
 
         TryJump();
 
-        // Calcul du déplacement du joueur
         Vector3 _move = transform.forward * velocity.z + transform.right * velocity.x + transform.up * velocity.y;
-        characterController.Move(_move * Time.deltaTime);
+
+        //animator.SetVector("Walk", Mathf.Abs(velocity));
+
+        if (sprint)
+        {
+            Debug.Log(sprint);
+            // Calcul du déplacement du joueur quand il court
+            characterController.Move(_move * 2 * Time.deltaTime);
+        }
+        else
+        {
+            // Calcul du déplacement du joueur quand il marche
+            characterController.Move(_move * Time.deltaTime);
+        }
     }
 
     private void Look()
     {
-        Debug.Log("Void Look " + "Camera rotation " + lookInputs);
-
         // Rotation horizontale du joueur
         transform.Rotate(lookInputs.x * sensitivity.x * Time.deltaTime * Vector3.up);
         // Calcul de la rotation verticale de la caméra
         float _camAngleX = Playercam.localEulerAngles.x - lookInputs.y * Time.deltaTime * sensitivity.y;
 
         // Limite la rotation verticale de la caméra à un certain angle
-        if (_camAngleX <= 90f) 
-        { 
-            _camAngleX = _camAngleX > 0 ? Mathf.Clamp(_camAngleX, 0f, 85f) : _camAngleX; 
+        if (_camAngleX <= 90f)
+        {
+            _camAngleX = _camAngleX > 0 ? Mathf.Clamp(_camAngleX, 0f, 85f) : _camAngleX;
         }
 
-        if (_camAngleX > 270f) 
-        { 
-            _camAngleX = Mathf.Clamp(_camAngleX, 275f, 360f); 
-        } 
+        if (_camAngleX > 270f)
+        {
+            _camAngleX = Mathf.Clamp(_camAngleX, 275f, 360f);
+        }
 
         // Ajout d'une interpolation pour la rotation verticale de la caméra
         float targetCamAngleX = _camAngleX;
@@ -78,7 +87,7 @@ public class PlayerController : MonoBehaviour
         if (joystickMagnitude > 0.2f)
         {
             // Modifier la vitesse maximale d'interpolation si nécessaire
-            float maxSpeed = 5f; 
+            float maxSpeed = 5f;
             float speed = maxSpeed * joystickMagnitude;
             targetCamAngleX = Mathf.Lerp(Playercam.localEulerAngles.x, _camAngleX, Time.fixedDeltaTime * speed);
         }
@@ -103,25 +112,7 @@ public class PlayerController : MonoBehaviour
         jumpPerformed = false;
     }
     public void MovePerformed(InputAction.CallbackContext _ctx) => moveInputs = _ctx.ReadValue<Vector2>();
-
-    public void RunPerformed(InputAction.CallbackContext _ctx)
-    {
-        
-           // runInputs = _ctx.ReadValueAsButton<Button>();
-            speed = 10f;
-            float speedRun = Valeur * 2;
-
-
-        if (!Input.GetButton("Run"))
-        {
-            speed = Valeur;
-        }
-    }
-
-    public void LookPerformed(InputAction.CallbackContext _ctx)
-    {
-        lookInputs = _ctx.ReadValue<Vector2>();
-    }
-
+    public void RunPerformed(InputAction.CallbackContext _ctx) => sprint = _ctx.ReadValue<float>() > 0;
+    public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
     public void JumpPerformed(InputAction.CallbackContext _ctx) => jumpPerformed = _ctx.performed;
 }

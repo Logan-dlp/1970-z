@@ -16,12 +16,12 @@
                 },
                 {
                     "name": "Look",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "555ba7d1-36f9-42cd-bfea-5be643d118d9",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
@@ -34,7 +34,7 @@
                 },
                 {
                     "name": "Run",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "e57e8982-a73c-45dc-9f32-ef7e55e23f88",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -69,6 +69,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Change fireamrs",
+                    "type": "Button",
+                    "id": "85d9f10f-7aec-4007-b63b-1ed4d13eec60",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "OpenDoor",
                     "type": "Button",
                     "id": "aeaa84b2-4961-491c-8197-0f3ca5677d9d",
@@ -90,15 +99,6 @@
                     "name": "Options",
                     "type": "Button",
                     "id": "657d743e-e2e1-43dc-a770-04d239a4d9a5",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Change fireamrs",
-                    "type": "Button",
-                    "id": "85d9f10f-7aec-4007-b63b-1ed4d13eec60",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -207,17 +207,6 @@
                 },
                 {
                     "name": "",
-                    "id": "ac01dd4e-e724-4343-8505-70ab636c1e9b",
-                    "path": "<XInputController>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Change fireamrs",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "bd57e480-7be7-45ee-9e3d-e3b165048cdc",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
@@ -235,6 +224,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ac01dd4e-e724-4343-8505-70ab636c1e9b",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Change fireamrs",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

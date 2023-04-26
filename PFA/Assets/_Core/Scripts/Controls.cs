@@ -38,12 +38,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Look"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""555ba7d1-36f9-42cd-bfea-5be643d118d9"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Jump"",
@@ -56,7 +56,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Run"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""e57e8982-a73c-45dc-9f32-ef7e55e23f88"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -91,6 +91,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Change fireamrs"",
+                    ""type"": ""Button"",
+                    ""id"": ""85d9f10f-7aec-4007-b63b-1ed4d13eec60"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""OpenDoor"",
                     ""type"": ""Button"",
                     ""id"": ""aeaa84b2-4961-491c-8197-0f3ca5677d9d"",
@@ -112,15 +121,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""name"": ""Options"",
                     ""type"": ""Button"",
                     ""id"": ""657d743e-e2e1-43dc-a770-04d239a4d9a5"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Change fireamrs"",
-                    ""type"": ""Button"",
-                    ""id"": ""85d9f10f-7aec-4007-b63b-1ed4d13eec60"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -229,17 +229,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ac01dd4e-e724-4343-8505-70ab636c1e9b"",
-                    ""path"": ""<XInputController>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Change fireamrs"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""bd57e480-7be7-45ee-9e3d-e3b165048cdc"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
@@ -259,6 +248,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ac01dd4e-e724-4343-8505-70ab636c1e9b"",
+                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Change fireamrs"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -274,10 +274,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
+        m_Player_Changefireamrs = m_Player.FindAction("Change fireamrs", throwIfNotFound: true);
         m_Player_OpenDoor = m_Player.FindAction("OpenDoor", throwIfNotFound: true);
         m_Player_Getitem = m_Player.FindAction("Get item", throwIfNotFound: true);
         m_Player_Options = m_Player.FindAction("Options", throwIfNotFound: true);
-        m_Player_Changefireamrs = m_Player.FindAction("Change fireamrs", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -346,10 +346,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Reload;
+    private readonly InputAction m_Player_Changefireamrs;
     private readonly InputAction m_Player_OpenDoor;
     private readonly InputAction m_Player_Getitem;
     private readonly InputAction m_Player_Options;
-    private readonly InputAction m_Player_Changefireamrs;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -361,10 +361,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
+        public InputAction @Changefireamrs => m_Wrapper.m_Player_Changefireamrs;
         public InputAction @OpenDoor => m_Wrapper.m_Player_OpenDoor;
         public InputAction @Getitem => m_Wrapper.m_Player_Getitem;
         public InputAction @Options => m_Wrapper.m_Player_Options;
-        public InputAction @Changefireamrs => m_Wrapper.m_Player_Changefireamrs;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -395,6 +395,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Reload.started += instance.OnReload;
             @Reload.performed += instance.OnReload;
             @Reload.canceled += instance.OnReload;
+            @Changefireamrs.started += instance.OnChangefireamrs;
+            @Changefireamrs.performed += instance.OnChangefireamrs;
+            @Changefireamrs.canceled += instance.OnChangefireamrs;
             @OpenDoor.started += instance.OnOpenDoor;
             @OpenDoor.performed += instance.OnOpenDoor;
             @OpenDoor.canceled += instance.OnOpenDoor;
@@ -404,9 +407,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Options.started += instance.OnOptions;
             @Options.performed += instance.OnOptions;
             @Options.canceled += instance.OnOptions;
-            @Changefireamrs.started += instance.OnChangefireamrs;
-            @Changefireamrs.performed += instance.OnChangefireamrs;
-            @Changefireamrs.canceled += instance.OnChangefireamrs;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -432,6 +432,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Reload.started -= instance.OnReload;
             @Reload.performed -= instance.OnReload;
             @Reload.canceled -= instance.OnReload;
+            @Changefireamrs.started -= instance.OnChangefireamrs;
+            @Changefireamrs.performed -= instance.OnChangefireamrs;
+            @Changefireamrs.canceled -= instance.OnChangefireamrs;
             @OpenDoor.started -= instance.OnOpenDoor;
             @OpenDoor.performed -= instance.OnOpenDoor;
             @OpenDoor.canceled -= instance.OnOpenDoor;
@@ -441,9 +444,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Options.started -= instance.OnOptions;
             @Options.performed -= instance.OnOptions;
             @Options.canceled -= instance.OnOptions;
-            @Changefireamrs.started -= instance.OnChangefireamrs;
-            @Changefireamrs.performed -= instance.OnChangefireamrs;
-            @Changefireamrs.canceled -= instance.OnChangefireamrs;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -470,9 +470,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnChangefireamrs(InputAction.CallbackContext context);
         void OnOpenDoor(InputAction.CallbackContext context);
         void OnGetitem(InputAction.CallbackContext context);
         void OnOptions(InputAction.CallbackContext context);
-        void OnChangefireamrs(InputAction.CallbackContext context);
     }
 }
