@@ -443,11 +443,12 @@ MonoBehaviour:
   Player: []
   SpawnPlayers:
   - {fileID: 580756453}
-  - {fileID: 580756453}
+  SpawnZombies:
+  - {fileID: 95591570}
   Zombies:
   - {fileID: 1899964925191428030, guid: 64afb38877bdd03499f0c1d03512a68f, type: 3}
   NbZombies: 0
-  NbManches: 1
+  NbManches: 0
 --- !u!114 &309175830
 MonoBehaviour:
   m_ObjectHideFlags: 0

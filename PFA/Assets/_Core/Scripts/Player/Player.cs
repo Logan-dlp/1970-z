@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
         if (PlayerLife <= 0)
         {
             gameManager.Player.Remove(gameObject);
+            gameManager.StopGame();
             Destroy(gameObject);
         }
     }

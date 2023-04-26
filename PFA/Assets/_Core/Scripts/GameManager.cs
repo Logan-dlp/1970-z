@@ -9,21 +9,21 @@ public class GameManager : MonoBehaviour
 {
     public List<GameObject> Player;
     public Transform[] SpawnPlayers;
+    public Transform[] SpawnZombies;
     public GameObject[] Zombies;
     public int NbZombies = 0;
     public int NbManches = 0;
+    
     private MultiPlayersGestion multiPlayersGestion;
-    private Transform zombiesParents;
 
     private void Start()
     {
         multiPlayersGestion = GetComponent<MultiPlayersGestion>();
-        zombiesParents = GameObject.Find("Spawn Zombies").transform;
     }
 
     private void Update()
     {
-        SpawnZombies(zombiesParents);
+        SpawnZombie();
     }
 
     public bool InGame()
@@ -31,21 +31,28 @@ public class GameManager : MonoBehaviour
         return multiPlayersGestion.NbPlayer >= 1;
     }
 
-    void SpawnZombies(Transform _parent)
+    public void StopGame()
     {
-        if (InGame() && ParentZombies())
+        if (InGame() && Player.Count <= 0)
         {
-            NbManches++;
-            for (int i = 0; i < NbManches; i++)
-            {
-                Instantiate(Zombies[0], _parent);
-                NbZombies++;
-            }
+            // changement de scènes à mettre a la mort des players
+            Debug.Log("GameOver !");
         }
     }
 
-    bool ParentZombies()
+    void SpawnZombie()
     {
-        return NbZombies > 0;
+        if (InGame() && NbZombies <= 0)
+        {
+            NbManches++;
+            foreach (Transform _spawnZombie in SpawnZombies)
+            {
+                for (int i = 0; i < NbManches; i++)
+                {
+                    Instantiate(Zombies[0], _spawnZombie);
+                    NbZombies++;
+                }
+            }
+        }
     }
 }

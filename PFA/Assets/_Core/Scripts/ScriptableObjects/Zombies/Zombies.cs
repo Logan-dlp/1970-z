@@ -83,8 +83,7 @@ public class Zombies : MonoBehaviour
         if (Vector3.Distance(Player.transform.position, transform.position) <= agent.stoppingDistance)
         {
             yield return new WaitForSeconds(DataSources.DegatTime);
-            float _playerLife = Player.GetComponent<Player>().PlayerLife;
-            _playerLife -= DataSources.Degat;
+            Player.GetComponent<Player>().PlayerLife -= DataSources.Degat;
             StopCoroutine("DegatTime");
         }
     }
