@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private Vector2 sensitivity = Vector2.one;
     [SerializeField] private Transform Playercam;
-    Animator animator;
 
     private Vector3 velocity;
 
@@ -26,8 +25,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-        //Playercam = GetComponent<>();
+        Playercam = transform.Find("Player_cam");
     }
 
     private void Update()
@@ -47,8 +45,6 @@ public class PlayerController : MonoBehaviour
         TryJump();
 
         Vector3 _move = transform.forward * velocity.z + transform.right * velocity.x + transform.up * velocity.y;
-
-        //animator.SetVector("Walk", Mathf.Abs(velocity));
 
         if (sprint)
         {
