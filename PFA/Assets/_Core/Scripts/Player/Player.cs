@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private GameManager gameManager;
+    private MultiPlayersGestion multiPlayersGestion;
     public float PlayerLife = 100;
 
     private void Start()
