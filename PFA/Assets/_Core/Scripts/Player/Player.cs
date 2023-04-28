@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        Debug.Log(transform.position);
     }
 
     private void Update()

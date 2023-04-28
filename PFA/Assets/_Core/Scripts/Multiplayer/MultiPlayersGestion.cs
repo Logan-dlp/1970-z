@@ -27,12 +27,12 @@ public class MultiPlayersGestion : MonoBehaviour
     {
         Debug.Log("Player Joined !");
         NbPlayer++;
+        _obj.transform.position = gameManager.SpawnPlayers[NbPlayer - 1].position;
+        _obj.GetComponent<CharacterController>().enabled = true;
         gameManager.Player.Add(_obj.gameObject);
         if (NbPlayer == 1)
         {
             _obj.gameObject.layer = LayerMask.NameToLayer("Player 1");
-            _obj.transform.position = gameManager.SpawnPlayers[NbPlayer - 1].position;
-            Debug.Log(_obj.transform.position);
             player1cam = _obj.GetComponentInChildren<Camera>();
         }else if (NbPlayer == 2)
         {
