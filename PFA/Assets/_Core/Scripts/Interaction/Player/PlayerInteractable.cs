@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteractable : MonoBehaviour
 {
+    public float InteractRange;
     private PlayerInput playerInput;
     private bool interact = false;
 
@@ -18,12 +19,17 @@ public class PlayerInteractable : MonoBehaviour
 
     private void Update()
     {
-        // détecter un gameObject en question
         if (interact == true)
         {
-            var interactable = gameObject.GetComponent<IInteractable>();
-            if (interactable ==  null) return;
-            interactable.Interact();
+            Ray _r = new Ray(transform.position, transform.forward);
+            if (Physics.Raycast(_r, out RaycastHit _hit, InteractRange))
+            {
+                if (_hit.collider.gameObject.TryGetComponent(out IInteractable _interactable))
+                {
+                    _interactable.Interact();
+                    interact = false;
+                }
+            }
         }
     }
 

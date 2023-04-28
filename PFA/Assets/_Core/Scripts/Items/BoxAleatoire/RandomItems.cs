@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class RandomItems : MonoBehaviour
+public class RandomItems : MonoBehaviour, IInteractable
 {
     public GameObject[] Armes;
     public KeyCode KeyToOpen = KeyCode.E;
@@ -17,22 +17,13 @@ public class RandomItems : MonoBehaviour
         UnSpawnArmes();
     }
 
-    // Interaction intégré directement sur la box
-    private void Update()
-    {
-        if (Input.GetKeyUp(KeyToOpen))
-        {
-            StartCoroutine("AnimationAleatoire");
-        }
-    }
-
     /// Retourne un objet aléatoire du tableau "Armes"
     GameObject Rand()
     {
         int rand = Random.Range(0, Armes.Length);
         return Armes[rand];
     }
-
+    
     void UnSpawnArmes()
     {
         for (int i = 0; i < Armes.Length; i++)
@@ -54,5 +45,10 @@ public class RandomItems : MonoBehaviour
             }
         }
         Rand().SetActive(true);
+    }
+
+    public void Interact()
+    {
+        StartCoroutine("AnimationAleatoire");
     }
 }
