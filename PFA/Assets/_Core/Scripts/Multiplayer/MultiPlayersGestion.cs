@@ -25,10 +25,12 @@ public class MultiPlayersGestion : MonoBehaviour
 
     void OnPlayerJoined(PlayerInput _obj)
     {
+        CharacterController _objComponent = _obj.GetComponent<CharacterController>();
         Debug.Log("Player Joined !");
         NbPlayer++;
+        _objComponent.enabled = false;
         _obj.transform.position = gameManager.SpawnPlayers[NbPlayer - 1].position;
-        _obj.GetComponent<CharacterController>().enabled = true;
+        _objComponent.enabled = true;
         gameManager.Player.Add(_obj.gameObject);
         if (NbPlayer == 1)
         {

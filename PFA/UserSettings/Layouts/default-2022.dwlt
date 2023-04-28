@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 85
+  controlID: 102
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -341,7 +341,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -367,7 +367,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -620,9 +620,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 20.375404, y: 2.495182, z: -7.160152}
+    m_Target: {x: 0.47232544, y: -0.23414984, z: -0.79427624}
     speed: 2
-    m_Value: {x: -10.231466, y: 1.8081847, z: -9.687379}
+    m_Value: {x: 0.47232544, y: -0.23414984, z: -0.79427624}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -668,13 +668,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.17191213, y: 0.8225044, z: -0.32692486, w: -0.43261412}
+    m_Target: {x: -0.113629624, y: 0.65229136, z: -0.09980646, w: -0.74282134}
     speed: 2
-    m_Value: {x: -0.11344144, y: 0.7536762, z: -0.13506211, w: -0.63313615}
+    m_Value: {x: -0.113621645, y: 0.6522456, z: -0.09979945, w: -0.7427692}
   m_Size:
-    m_Target: 4.7466884
+    m_Target: 4.461889
     speed: 2
-    m_Value: 1.2124354
+    m_Value: 4.461889
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -737,9 +737,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: aa6a0000
+      m_SelectedIDs: b80a0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 26fbffff
+      m_ExpandedIDs: 50f8ffff26fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -910,23 +910,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Core/Scripts
+    - Assets/_Core/Scripts/Player
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/_Core/Scripts
+  - Assets/_Core/Scripts/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\pix59\Documents\Unity\PFA\PFA
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 7.8000183}
-    m_SelectedIDs: 906b0000
-    m_LastClickedID: 27536
-    m_ExpandedIDs: 000000008c6b00008e6b0000906b0000926b00002e6d0000386d000000ca9a3b
+    scrollPos: {x: 0, y: 23.800018}
+    m_SelectedIDs: 2a6d0000
+    m_LastClickedID: 27946
+    m_ExpandedIDs: 000000008c6b00008e6b0000906b0000926b0000246d0000726d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

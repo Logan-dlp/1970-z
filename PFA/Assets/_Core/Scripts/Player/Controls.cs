@@ -91,27 +91,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Change fireamrs"",
-                    ""type"": ""Button"",
-                    ""id"": ""85d9f10f-7aec-4007-b63b-1ed4d13eec60"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""OpenDoor"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""aeaa84b2-4961-491c-8197-0f3ca5677d9d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Get item"",
-                    ""type"": ""Button"",
-                    ""id"": ""7ef71011-856b-47f5-a6ef-3a04b5f5f217"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -186,22 +168,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""09e1ac35-02ed-4fa1-a782-f9c8414218fd"",
-                    ""path"": ""<NimbusGamepadHid>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""OpenDoor"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9cb8c53d-926b-4fc3-aab2-d32048c38d2e"",
-                    ""path"": ""<NimbusGamepadHid>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Get item"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -248,17 +219,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ac01dd4e-e724-4343-8505-70ab636c1e9b"",
-                    ""path"": ""<XInputController>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Change fireamrs"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -274,9 +234,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
-        m_Player_Changefireamrs = m_Player.FindAction("Change fireamrs", throwIfNotFound: true);
-        m_Player_OpenDoor = m_Player.FindAction("OpenDoor", throwIfNotFound: true);
-        m_Player_Getitem = m_Player.FindAction("Get item", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Options = m_Player.FindAction("Options", throwIfNotFound: true);
     }
 
@@ -346,9 +304,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Reload;
-    private readonly InputAction m_Player_Changefireamrs;
-    private readonly InputAction m_Player_OpenDoor;
-    private readonly InputAction m_Player_Getitem;
+    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Options;
     public struct PlayerActions
     {
@@ -361,9 +317,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
-        public InputAction @Changefireamrs => m_Wrapper.m_Player_Changefireamrs;
-        public InputAction @OpenDoor => m_Wrapper.m_Player_OpenDoor;
-        public InputAction @Getitem => m_Wrapper.m_Player_Getitem;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Options => m_Wrapper.m_Player_Options;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -395,15 +349,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Reload.started += instance.OnReload;
             @Reload.performed += instance.OnReload;
             @Reload.canceled += instance.OnReload;
-            @Changefireamrs.started += instance.OnChangefireamrs;
-            @Changefireamrs.performed += instance.OnChangefireamrs;
-            @Changefireamrs.canceled += instance.OnChangefireamrs;
-            @OpenDoor.started += instance.OnOpenDoor;
-            @OpenDoor.performed += instance.OnOpenDoor;
-            @OpenDoor.canceled += instance.OnOpenDoor;
-            @Getitem.started += instance.OnGetitem;
-            @Getitem.performed += instance.OnGetitem;
-            @Getitem.canceled += instance.OnGetitem;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
             @Options.started += instance.OnOptions;
             @Options.performed += instance.OnOptions;
             @Options.canceled += instance.OnOptions;
@@ -432,15 +380,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Reload.started -= instance.OnReload;
             @Reload.performed -= instance.OnReload;
             @Reload.canceled -= instance.OnReload;
-            @Changefireamrs.started -= instance.OnChangefireamrs;
-            @Changefireamrs.performed -= instance.OnChangefireamrs;
-            @Changefireamrs.canceled -= instance.OnChangefireamrs;
-            @OpenDoor.started -= instance.OnOpenDoor;
-            @OpenDoor.performed -= instance.OnOpenDoor;
-            @OpenDoor.canceled -= instance.OnOpenDoor;
-            @Getitem.started -= instance.OnGetitem;
-            @Getitem.performed -= instance.OnGetitem;
-            @Getitem.canceled -= instance.OnGetitem;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
             @Options.started -= instance.OnOptions;
             @Options.performed -= instance.OnOptions;
             @Options.canceled -= instance.OnOptions;
@@ -470,9 +412,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
-        void OnChangefireamrs(InputAction.CallbackContext context);
-        void OnOpenDoor(InputAction.CallbackContext context);
-        void OnGetitem(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         void OnOptions(InputAction.CallbackContext context);
     }
 }
