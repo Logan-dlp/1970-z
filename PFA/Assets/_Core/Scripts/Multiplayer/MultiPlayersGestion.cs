@@ -8,9 +8,7 @@ public class MultiPlayersGestion : MonoBehaviour
 {
     private GameManager gameManager;
     private PlayerInputManager inputManager;
-    public int NbPlayer = 0;
-    private Camera player1cam;
-    private Camera player2cam;
+    private int nbPlayer = 0;
 
     private void Awake()
     {
@@ -25,23 +23,17 @@ public class MultiPlayersGestion : MonoBehaviour
 
     void OnPlayerJoined(PlayerInput _obj)
     {
-        CharacterController _objComponent = _obj.GetComponent<CharacterController>();
         Debug.Log("Player Joined !");
-        NbPlayer++;
-        _objComponent.enabled = false;
-        _obj.transform.position = gameManager.SpawnPlayers[NbPlayer - 1].position;
-        _objComponent.enabled = true;
+        nbPlayer++;
+        _obj.gameObject.transform.position = gameManager.SpawnPlayers[nbPlayer - 1].position;
         gameManager.Player.Add(_obj.gameObject);
-        if (NbPlayer == 1)
+        // _obj.gameObject.layer = LayerMask.NameToLayer("Player " + nbPlayer); (à tester)
+        if (nbPlayer == 1)
         {
             _obj.gameObject.layer = LayerMask.NameToLayer("Player 1");
-            player1cam = _obj.GetComponentInChildren<Camera>();
-        }else if (NbPlayer == 2)
+        }else if (nbPlayer == 2)
         {
             _obj.gameObject.layer = LayerMask.NameToLayer("Player 2");
-            player2cam = _obj.GetComponentInChildren<Camera>();
-            player1cam.rect = new Rect(0, 0.5f, 1, 1);
-            player2cam.rect = new Rect(0, -0.5f, 1, 1);
         }
     }
 }
