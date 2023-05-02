@@ -359,6 +359,9 @@ GameObject:
   - component: {fileID: 2006521292}
   - component: {fileID: 2006521295}
   - component: {fileID: 2006521294}
+  - component: {fileID: 2006521298}
+  - component: {fileID: 2006521297}
+  - component: {fileID: 2006521296}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -563,6 +566,64 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InteractRange: 100
   InteractUI: {fileID: 2130842797}
+  LackOfCoinUI: {fileID: 0}
+--- !u!114 &2006521296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006521287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a84d388ada3cc4bb9769b30954dc92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerLife: 100
+  Coin: 0
+--- !u!114 &2006521297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006521287}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef87dfb060a3904c9b673b22961c4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
+  sprint: 0
+  jumpForce: 5
+  sensitivity: {x: 1, y: 1}
+  Playercam: {fileID: 0}
+--- !u!143 &2006521298
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006521287}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2130842797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1216,11 @@ PrefabInstance:
       propertyPath: Armes.Array.data[2]
       value: 
       objectReference: {fileID: 1463468417700711532}
+    - target: {fileID: 1542491813473612037, guid: a808a2af636da7147b990107050ac5d1,
+        type: 3}
+      propertyPath: Price
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2317317363044706334, guid: a808a2af636da7147b990107050ac5d1,
         type: 3}
       propertyPath: m_RootOrder

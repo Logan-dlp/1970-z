@@ -39,6 +39,7 @@ public class PlayerInteractable : MonoBehaviour
             else
             {
                 InteractUI.SetActive(false);
+                interact = false;
             }
 
             if (interact == true)
