@@ -8,6 +8,7 @@ public class PlayerInteractable : MonoBehaviour
 {
     public float InteractRange;
     public GameObject InteractUI;
+    public GameObject LackOfCoinUI;
     private PlayerInput playerInput;
     private Player player;
     private bool interact = false;
@@ -56,7 +57,9 @@ public class PlayerInteractable : MonoBehaviour
                 }
                 else
                 {
+                    StartCoroutine("UIForTime");
                     interact = false;
+                    StopCoroutine("UIForTime");
                 }
             }
     }
@@ -64,5 +67,12 @@ public class PlayerInteractable : MonoBehaviour
     public void InteractPerformed(InputAction.CallbackContext _ctx)
     {
         interact = _ctx.performed;
+    }
+
+    IEnumerator UIForTime()
+    {
+        LackOfCoinUI.SetActive(true);
+        yield return new WaitForSeconds(3);
+        LackOfCoinUI.SetActive(false);
     }
 }

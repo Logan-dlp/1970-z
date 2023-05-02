@@ -9,7 +9,6 @@ using Random = UnityEngine.Random;
 public class RandomItems : MonoBehaviour, IInteractable
 {
     public GameObject[] Armes;
-    public KeyCode KeyToOpen = KeyCode.E;
     public float TimeWait = .2f;
     public int NbBoucle = 4;
 
