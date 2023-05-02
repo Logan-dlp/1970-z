@@ -49,6 +49,14 @@ public class PlayerInteractable : MonoBehaviour
                         _interactable.Interact();
                         interact = false;
                     }
+                    else
+                    {
+                        interact = false;
+                    }
+                }
+                else
+                {
+                    interact = false;
                 }
             }
     }
