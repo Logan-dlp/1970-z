@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private GameManager gameManager;
     private MultiPlayersGestion multiPlayersGestion;
     public float PlayerLife = 100;
+    public int Coin = 0;
 
     private void Start()
     {

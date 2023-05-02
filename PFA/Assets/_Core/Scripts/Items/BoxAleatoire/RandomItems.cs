@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(ItemsSettings))]
 public class RandomItems : MonoBehaviour, IInteractable
 {
     public GameObject[] Armes;

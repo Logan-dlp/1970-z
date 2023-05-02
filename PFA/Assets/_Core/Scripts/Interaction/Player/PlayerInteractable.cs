@@ -9,11 +9,13 @@ public class PlayerInteractable : MonoBehaviour
     public float InteractRange;
     public GameObject InteractUI;
     private PlayerInput playerInput;
+    private Player player;
     private bool interact = false;
 
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        player = GetComponent<Player>();
         InputAction _interact = playerInput.actions["Interact"];
         _interact.performed += InteractPerformed;
         InteractUI.SetActive(false);
@@ -40,10 +42,13 @@ public class PlayerInteractable : MonoBehaviour
 
             if (interact == true)
             {
-                if (_hit.collider.gameObject.TryGetComponent(out IInteractable _interactable))
+                if (_hit.collider.gameObject.TryGetComponent(out IInteractable _interactable) && _hit.collider.gameObject.TryGetComponent(out ItemsSettings _itemsSettings))
                 {
-                    _interactable.Interact();
-                    interact = false;
+                    if (player.Coin >= _itemsSettings.Price)
+                    {
+                        _interactable.Interact();
+                        interact = false;
+                    }
                 }
             }
     }
