@@ -27,11 +27,6 @@ public class PlayerInteractable : MonoBehaviour
                 if (_hit.collider.gameObject.TryGetComponent(out IInteractable _interactable))
                 {
                     InteractUI.SetActive(true);
-                    if (interact = true)
-                    {
-                        _interactable.Interact();
-                        interact = false;
-                    }
                 }
                 else
                 {
@@ -41,6 +36,15 @@ public class PlayerInteractable : MonoBehaviour
             else
             {
                 InteractUI.SetActive(false);
+            }
+
+            if (interact == true)
+            {
+                if (_hit.collider.gameObject.TryGetComponent(out IInteractable _interactable))
+                {
+                    _interactable.Interact();
+                    interact = false;
+                }
             }
     }
 
