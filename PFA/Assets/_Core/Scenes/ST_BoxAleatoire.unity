@@ -1051,6 +1051,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2235078892689659606}
+  - component: {fileID: 2235078892689659608}
+  - component: {fileID: 2235078892689659607}
+  - component: {fileID: 2235078892689659609}
   m_Layer: 0
   m_Name: Glock
   m_TagString: Untagged
@@ -1123,6 +1126,52 @@ Transform:
   m_Father: {fileID: 1090881928}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2235078892689659607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463468417700711532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb2a64140fbca42940692ab5fdee25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Price: 0
+--- !u!114 &2235078892689659608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463468417700711532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c034fb533af48438e5d19d85e52f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2235078892689659609
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463468417700711532}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.25, y: 0.25, z: 0.25}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2414073710956684241
 Transform:
   m_ObjectHideFlags: 0
@@ -1179,6 +1228,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4149525887882977581}
+  - component: {fileID: 4149525887882977583}
+  - component: {fileID: 4149525887882977582}
+  - component: {fileID: 4149525887882977584}
   m_Layer: 0
   m_Name: Deagle
   m_TagString: Untagged
@@ -1203,6 +1255,52 @@ Transform:
   m_Father: {fileID: 1090881928}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4149525887882977582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3665300505195527063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb2a64140fbca42940692ab5fdee25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Price: 0
+--- !u!114 &4149525887882977583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3665300505195527063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c034fb533af48438e5d19d85e52f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &4149525887882977584
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3665300505195527063}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 1.5, z: 0.5}
 --- !u!23 &4735614641559844274
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1330,6 +1428,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7602302826253610782}
+  - component: {fileID: 7602302826253610784}
+  - component: {fileID: 7602302826253610783}
+  - component: {fileID: 7602302826253610785}
   m_Layer: 0
   m_Name: AK-47
   m_TagString: Untagged
@@ -1374,6 +1475,52 @@ Transform:
   m_Father: {fileID: 1090881928}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &7602302826253610783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118817209001653668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb2a64140fbca42940692ab5fdee25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Price: 0
+--- !u!114 &7602302826253610784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118817209001653668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c034fb533af48438e5d19d85e52f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7602302826253610785
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7118817209001653668}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &7636181609433942208
 MeshFilter:
   m_ObjectHideFlags: 0

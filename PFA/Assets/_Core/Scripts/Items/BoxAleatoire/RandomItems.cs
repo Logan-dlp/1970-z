@@ -11,6 +11,7 @@ public class RandomItems : MonoBehaviour, IInteractable
     public GameObject[] Armes;
     public float TimeWait = .2f;
     public int NbBoucle = 4;
+    public bool Interactable = false;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class RandomItems : MonoBehaviour, IInteractable
 
     IEnumerator AnimationAleatoire()
     {
+        ResetInteractable();
         UnSpawnArmes();
         for (int i = 0; i < NbBoucle; i++)
         {
@@ -44,7 +46,17 @@ public class RandomItems : MonoBehaviour, IInteractable
                 Armes[j].SetActive(false);
             }
         }
-        Rand().SetActive(true);
+        GameObject _arme = Rand();
+        _arme.GetComponent<ArmesInteraction>().Interactable = true;
+        _arme.SetActive(true);
+    }
+
+    void ResetInteractable()
+    {
+        for (int i = 0; i < Armes.Length; i++)
+        {
+            Armes[i].GetComponent<ArmesInteraction>().Interactable = false;
+        }
     }
 
     public void Interact(GameObject _player)

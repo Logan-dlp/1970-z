@@ -34,7 +34,10 @@ public class PlayerInteractable : MonoBehaviour
                     InteractUI.SetActive(true);
                     Text _priceText = PriceUI.GetComponent<Text>();
                     _priceText.text = _itemsSettings.Price.ToString() + " $";
-                    PriceUI.SetActive(true);
+                    if (_itemsSettings.Price > 0)
+                    {
+                        PriceUI.SetActive(true);
+                    }
                 }
                 else
                 {
