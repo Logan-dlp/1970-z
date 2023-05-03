@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class ItemsSettings : MonoBehaviour
 {
-    public int Price;
+    public int Price = 0;
 }

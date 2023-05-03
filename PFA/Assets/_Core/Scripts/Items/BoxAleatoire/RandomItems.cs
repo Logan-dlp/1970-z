@@ -47,7 +47,7 @@ public class RandomItems : MonoBehaviour, IInteractable
         Rand().SetActive(true);
     }
 
-    public void Interact()
+    public void Interact(GameObject _player)
     {
         StartCoroutine("AnimationAleatoire");
     }

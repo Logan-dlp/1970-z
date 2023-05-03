@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerInteractable : MonoBehaviour
 {
     public float InteractRange;
     public GameObject InteractUI;
+    public GameObject PriceUI;
     public GameObject LackOfCoinUI;
     private PlayerInput playerInput;
     private Player player;
@@ -19,7 +21,7 @@ public class PlayerInteractable : MonoBehaviour
         player = GetComponent<Player>();
         InputAction _interact = playerInput.actions["Interact"];
         _interact.performed += InteractPerformed;
-        InteractUI.SetActive(false);
+        LackOfCoinUI.SetActive(false);
     }
 
     private void Update()
@@ -27,18 +29,23 @@ public class PlayerInteractable : MonoBehaviour
         Ray _r = new Ray(transform.position, transform.forward);
             if (Physics.Raycast(_r, out RaycastHit _hit, InteractRange))
             {
-                if (_hit.collider.gameObject.TryGetComponent(out IInteractable _interactable))
+                if (_hit.collider.gameObject.TryGetComponent(out IInteractable _interactable) && _hit.collider.gameObject.TryGetComponent(out ItemsSettings _itemsSettings))
                 {
                     InteractUI.SetActive(true);
+                    Text _priceText = PriceUI.GetComponent<Text>();
+                    _priceText.text = _itemsSettings.Price.ToString() + " $";
+                    PriceUI.SetActive(true);
                 }
                 else
                 {
                     InteractUI.SetActive(false);
+                    PriceUI.SetActive(false);
                 }
             }
             else
             {
                 InteractUI.SetActive(false);
+                PriceUI.SetActive(false);
                 interact = false;
             }
 
@@ -48,19 +55,18 @@ public class PlayerInteractable : MonoBehaviour
                 {
                     if (player.Coin >= _itemsSettings.Price)
                     {
-                        _interactable.Interact();
+                        _interactable.Interact(player.gameObject);
                         interact = false;
                     }
                     else
                     {
+                        StartCoroutine("UIForTime");
                         interact = false;
                     }
                 }
                 else
                 {
-                    StartCoroutine("UIForTime");
                     interact = false;
-                    StopCoroutine("UIForTime");
                 }
             }
     }
