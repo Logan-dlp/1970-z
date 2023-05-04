@@ -60,6 +60,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "NoAim",
+                    "type": "Button",
+                    "id": "fea297a9-de18-4c90-a288-e23f1a57da6f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Reload",
                     "type": "Button",
                     "id": "4bbc6dc0-8561-4c1a-b9f0-33a4a5e2be22",
@@ -136,7 +145,7 @@
                     "name": "",
                     "id": "04cbc734-e185-4577-b4ff-f9464ef4a7e7",
                     "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Aim",
@@ -195,6 +204,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9054f544-1447-4ec0-816a-2281a1504fe8",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NoAim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

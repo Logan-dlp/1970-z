@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -7,7 +9,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Settings Player")]
+    [Header("Player settings")]
     [SerializeField] private float speed = 4f;
     [SerializeField] private bool sprint = false;
     [SerializeField] private float jumpForce = 5f;
@@ -21,7 +23,8 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController characterController;
 
-  
+    public WeaponsControls Arms;
+
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -106,8 +109,26 @@ public class PlayerController : MonoBehaviour
         velocity.y += jumpForce;
         jumpPerformed = false;
     }
+
     public void MovePerformed(InputAction.CallbackContext _ctx) => moveInputs = _ctx.ReadValue<Vector2>();
     public void RunPerformed(InputAction.CallbackContext _ctx) => sprint = _ctx.ReadValue<float>() > 0;
     public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
     public void JumpPerformed(InputAction.CallbackContext _ctx) => jumpPerformed = _ctx.performed;
+    public void ShootPerformed(InputAction.CallbackContext _ctx) => Arms.Shoot();
+    public void AimPerformed(InputAction.CallbackContext _ctx) => Arms.Aim();
+    public void NoAimPerformed(InputAction.CallbackContext _ctx) => Arms.NoAim();
+
+    private void OnDisable()
+    {
+        AimPerformed();
+    }
+    private void OnEnable()
+    {
+        AimPerformed();
+    }
+
+    private void AimPerformed()
+    {
+        Arms.Aim();
+    }
 }
