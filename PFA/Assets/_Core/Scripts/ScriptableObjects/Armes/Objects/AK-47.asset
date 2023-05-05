@@ -15,13 +15,11 @@ MonoBehaviour:
   Name: AK-47
   Skin: {fileID: 0}
   ParticuleShoot: {fileID: 0}
-  BulletsCount: 0
-  Cartridges: 600
-  BulletSpeed: 1
   RealoadTime: 1
   Damage: 10
   Reaload: 12
   SoundShoot: {fileID: 0}
   Player_cam: {fileID: 0}
   range: 100
-  automatic: 0
+  automatic: 1
+  AutomaticTimeShoot: 1

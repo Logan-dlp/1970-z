@@ -3015,9 +3015,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armsData: {fileID: 11400000, guid: 233914c468d7d1f4b9e243c8d2e2a4a9, type: 2}
-  zombiesData: {fileID: 11400000, guid: 5b4f8838921b7f44c8163a00e91d8724, type: 2}
-  zombies: {fileID: 0}
-  range: 100
   TouchActivate: 0
 --- !u!23 &1540953619837275776
 MeshRenderer:

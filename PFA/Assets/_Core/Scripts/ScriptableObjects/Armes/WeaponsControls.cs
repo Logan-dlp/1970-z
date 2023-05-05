@@ -9,13 +9,9 @@ using UnityEngine.UI;
 public class WeaponsControls : MonoBehaviour
 {
 
-    [SerializeField] private WeaponsData armsData;
-    [SerializeField] private ZombiesData zombiesData;
-    [SerializeField] private Zombies zombies;
+    public WeaponsData armsData;
     private Transform cam;
     private Camera camPlayer;
-    [SerializeField] float range = 100f;
-    private float damage;
 
     public bool TouchActivate = false;
     
@@ -23,16 +19,12 @@ public class WeaponsControls : MonoBehaviour
     {
         Camera _cam = GetComponentInParent<Camera>();
         cam = _cam.gameObject.transform;
-        range = armsData.range;
-        damage = armsData.Damage;
-        armsData.Cartridges = 600;
-        armsData.BulletsCount = 0;
     }
 
     private void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, armsData.range))
         {
             Debug.DrawRay(cam.transform.position, cam.transform.TransformDirection(Vector3.forward) * hit.distance,
                 Color.red);
@@ -42,7 +34,7 @@ public class WeaponsControls : MonoBehaviour
         {
             if (TouchActivate == true)
             {
-                // Cadance de tire...
+                Shoot();
                 StartCoroutine("LapsTimeToShoot");
             }
         }
@@ -59,12 +51,12 @@ public class WeaponsControls : MonoBehaviour
     public void Shoot()
     {
         RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, armsData.range))
         {
             Debug.Log(hit.transform.name);
             if (hit.collider.gameObject.GetComponent<Zombies>())
             {
-                TakeDamage(hit.transform.gameObject);
+                TakeDamage(hit.transform.gameObject.GetComponent<Zombies>());
                 Debug.Log("hitNoAutomatic");
             }
         }
@@ -80,17 +72,16 @@ public class WeaponsControls : MonoBehaviour
         camPlayer.fieldOfView = 60;
     }
 
-    private void TakeDamage(GameObject _zombie)
+    private void TakeDamage(Zombies _zombie)
     {
-        _zombie.GetComponent<Zombies>().Life -= damage;
-        _zombie.GetComponent<Zombies>().Death();
-        Debug.Log(_zombie.GetComponent<Zombies>().Life);
+        _zombie.Life -= armsData.Damage;
+        _zombie.Death();
     }
 
     IEnumerator LapsTimeToShoot()
     {
-        Shoot();
-        yield return new WaitForSeconds(4);
-        StopCoroutine("LapsTimeToShoot");
+        TouchActivate = false;
+        yield return new WaitForSeconds(armsData.AutomaticTimeShoot);
+        TouchActivate = true;
     }
 }

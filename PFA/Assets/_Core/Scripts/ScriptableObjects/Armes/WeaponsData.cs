@@ -11,10 +11,7 @@ public class WeaponsData : ScriptableObject
     
     public GameObject Skin;
     public ParticleSystem ParticuleShoot;
-
-    public int BulletsCount; //nb de bullets
-    public int Cartridges; //nb de cartouches
-    public float BulletSpeed; // vitesse des balles
+    
     public float RealoadTime; // Temps de recharges -> animations /// Faire une couroutine (à tester)
     public float Damage;
     
@@ -29,4 +26,5 @@ public class WeaponsData : ScriptableObject
     public float range;
     
     public bool automatic;
+    public float AutomaticTimeShoot;
 }
