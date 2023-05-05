@@ -11,39 +11,34 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player settings")]
-    [SerializeField] private float speed = 4f;
-    [SerializeField] private bool sprint = false;
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private Vector2 sensitivity = Vector2.one;
-    [SerializeField] private Transform Playercam;
+    public float Speed = 4f;
+    private bool sprint = false;
+    public float JumpForce = 5f;
+    public Vector2 Sensitivity = Vector2.one;
+    private Transform Playercam;
 
     private Vector3 velocity;
-
     private Vector2 moveInputs, lookInputs;
     private bool jumpPerformed;
-
     private CharacterController characterController;
+    private WeaponsControls Arms;
 
-    public WeaponsControls Arms;
-
-    private bool TEST;
-    
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
-        Playercam = transform.Find("Player_cam");
+        Playercam = GetComponentInChildren<Camera>().transform;
+        Arms = GetComponentInChildren<WeaponsControls>();
     }
 
     private void Update()
     {
         Look();
-        Debug.Log(TEST);
     }
 
     private void FixedUpdate()
     {
         // Calcul de la vitesse horizontale et verticale du joueur
-        Vector3 _horizontalVelocity = speed * new Vector3(moveInputs.x, 0, moveInputs.y);
+        Vector3 _horizontalVelocity = Speed * new Vector3(moveInputs.x, 0, moveInputs.y);
         float _gravityVelocity = Gravity(velocity.y);
 
         // Calcul de la vitesse totale du joueur
@@ -68,9 +63,9 @@ public class PlayerController : MonoBehaviour
     private void Look()
     {
         // Rotation horizontale du joueur
-        transform.Rotate(lookInputs.x * sensitivity.x * Time.deltaTime * Vector3.up);
+        transform.Rotate(lookInputs.x * Sensitivity.x * Time.deltaTime * Vector3.up);
         // Calcul de la rotation verticale de la caméra
-        float _camAngleX = Playercam.localEulerAngles.x - lookInputs.y * Time.deltaTime * sensitivity.y;
+        float _camAngleX = Playercam.localEulerAngles.x - lookInputs.y * Time.deltaTime * Sensitivity.y;
 
         // Limite la rotation verticale de la caméra à un certain angle
         if (_camAngleX <= 90f)
@@ -110,7 +105,7 @@ public class PlayerController : MonoBehaviour
     private void TryJump()
     {
         if (!jumpPerformed || !characterController.isGrounded) return;
-        velocity.y += jumpForce;
+        velocity.y += JumpForce;
         jumpPerformed = false;
     }
 
@@ -118,11 +113,7 @@ public class PlayerController : MonoBehaviour
     public void RunPerformed(InputAction.CallbackContext _ctx) => sprint = _ctx.ReadValue<float>() > 0;
     public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
     public void JumpPerformed(InputAction.CallbackContext _ctx) => jumpPerformed = _ctx.performed;
-    
-    
     public void ShootPerformed(InputAction.CallbackContext _ctx) => Arms.TouchActivate = _ctx.performed;
-
-
     public void AimPerformed(InputAction.CallbackContext _ctx) => Arms.Aim();
     public void NoAimPerformed(InputAction.CallbackContext _ctx) => Arms.NoAim();
     
@@ -130,6 +121,7 @@ public class PlayerController : MonoBehaviour
     {
         AimPerformed();
     }
+    
     private void OnEnable()
     {
         AimPerformed();
