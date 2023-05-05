@@ -18,9 +18,7 @@ public class WeaponsControls : MonoBehaviour
     private float damage;
 
     public bool TouchActivate = false;
-
- 
-
+    
     private void Start()
     {
         Camera _cam = GetComponentInParent<Camera>();
@@ -40,9 +38,21 @@ public class WeaponsControls : MonoBehaviour
                 Color.red);
         }
 
-        if (TouchActivate == true)
+        if (armsData.automatic == true)
         {
-            Shoot();
+            if (TouchActivate == true)
+            {
+                // Cadance de tire...
+                StartCoroutine("LapsTimeToShoot");
+            }
+        }
+        else
+        {
+            if (TouchActivate == true)
+            {
+                Shoot();
+                TouchActivate = false;
+            }
         }
     }
 
@@ -54,18 +64,9 @@ public class WeaponsControls : MonoBehaviour
             Debug.Log(hit.transform.name);
             if (hit.collider.gameObject.GetComponent<Zombies>())
             {
-                
                 TakeDamage(hit.transform.gameObject);
                 Debug.Log("hitNoAutomatic");
             }
-            else
-            {
-                TouchActivate = false;
-            }
-        }
-        else
-        {
-            TouchActivate = false;
         }
     }
 
@@ -81,17 +82,15 @@ public class WeaponsControls : MonoBehaviour
 
     private void TakeDamage(GameObject _zombie)
     {
-        if (armsData.automatic == false)
-        {
-            _zombie.GetComponent<Zombies>().Life -= damage;
-            _zombie.GetComponent<Zombies>().Death();
-            Debug.Log(_zombie.GetComponent<Zombies>().Life);
-            TouchActivate = false;
-        }
+        _zombie.GetComponent<Zombies>().Life -= damage;
+        _zombie.GetComponent<Zombies>().Death();
+        Debug.Log(_zombie.GetComponent<Zombies>().Life);
+    }
 
-        if (armsData.automatic == true)
-        {
-
-        }
+    IEnumerator LapsTimeToShoot()
+    {
+        Shoot();
+        yield return new WaitForSeconds(4);
+        StopCoroutine("LapsTimeToShoot");
     }
 }

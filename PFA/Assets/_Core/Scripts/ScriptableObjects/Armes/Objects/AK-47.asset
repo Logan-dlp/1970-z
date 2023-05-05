@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: AK-47
   Skin: {fileID: 0}
-  BulletPrefab: {fileID: 0}
   ParticuleShoot: {fileID: 0}
-  BulletsCount: 600
+  BulletsCount: 0
   Cartridges: 600
   BulletSpeed: 1
   RealoadTime: 1
@@ -25,3 +24,4 @@ MonoBehaviour:
   SoundShoot: {fileID: 0}
   Player_cam: {fileID: 0}
   range: 100
+  automatic: 0

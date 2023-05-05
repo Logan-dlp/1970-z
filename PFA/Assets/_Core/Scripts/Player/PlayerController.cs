@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
 
     public WeaponsControls Arms;
+
+    private bool TEST;
     
     private void Start()
     {
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Look();
+        Debug.Log(TEST);
     }
 
     private void FixedUpdate()
@@ -115,8 +118,11 @@ public class PlayerController : MonoBehaviour
     public void RunPerformed(InputAction.CallbackContext _ctx) => sprint = _ctx.ReadValue<float>() > 0;
     public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
     public void JumpPerformed(InputAction.CallbackContext _ctx) => jumpPerformed = _ctx.performed;
-    public void ShootPerformed(InputAction.CallbackContext _ctx) => Arms.TouchActivate = _ctx.started ;
-    public void ShootCanceled(InputAction.CallbackContext _ctx) => Arms.TouchActivate = _ctx.canceled;
+    
+    
+    public void ShootPerformed(InputAction.CallbackContext _ctx) => Arms.TouchActivate = _ctx.performed;
+
+
     public void AimPerformed(InputAction.CallbackContext _ctx) => Arms.Aim();
     public void NoAimPerformed(InputAction.CallbackContext _ctx) => Arms.NoAim();
     
