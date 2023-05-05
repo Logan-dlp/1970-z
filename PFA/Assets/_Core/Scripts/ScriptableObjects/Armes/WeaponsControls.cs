@@ -21,7 +21,7 @@ public class WeaponsControls : MonoBehaviour
         cam = _cam.gameObject.transform;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, armsData.range))
@@ -34,7 +34,6 @@ public class WeaponsControls : MonoBehaviour
         {
             if (TouchActivate == true)
             {
-                Shoot();
                 StartCoroutine("LapsTimeToShoot");
             }
         }
@@ -80,8 +79,8 @@ public class WeaponsControls : MonoBehaviour
 
     IEnumerator LapsTimeToShoot()
     {
-        TouchActivate = false;
         yield return new WaitForSeconds(armsData.AutomaticTimeShoot);
-        TouchActivate = true;
+        Shoot();
+        StopCoroutine("LapsTimeToShoot");
     }
 }
