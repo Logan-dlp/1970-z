@@ -16,6 +16,11 @@ public class WeaponsControls : MonoBehaviour
     private Camera camPlayer;
     [SerializeField] float range = 100f;
     private float damage;
+
+    public bool TouchActivate = false;
+
+ 
+
     private void Start()
     {
         Camera _cam = GetComponentInParent<Camera>();
@@ -23,18 +28,23 @@ public class WeaponsControls : MonoBehaviour
         range = armsData.range;
         damage = armsData.Damage;
         armsData.Cartridges = 600;
+        armsData.BulletsCount = 0;
     }
-
 
     private void Update()
     {
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
-            Debug.DrawRay(cam.transform.position, cam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+            Debug.DrawRay(cam.transform.position, cam.transform.TransformDirection(Vector3.forward) * hit.distance,
+                Color.red);
+        }
+
+        if (TouchActivate == true)
+        {
+            Shoot();
         }
     }
-
 
     public void Shoot()
     {
@@ -44,10 +54,19 @@ public class WeaponsControls : MonoBehaviour
             Debug.Log(hit.transform.name);
             if (hit.collider.gameObject.GetComponent<Zombies>())
             {
+                
                 TakeDamage(hit.transform.gameObject);
-                Debug.Log("hit");
+                Debug.Log("hitNoAutomatic");
             }
-        }  
+            else
+            {
+                TouchActivate = false;
+            }
+        }
+        else
+        {
+            TouchActivate = false;
+        }
     }
 
     public void Aim()
@@ -62,8 +81,17 @@ public class WeaponsControls : MonoBehaviour
 
     private void TakeDamage(GameObject _zombie)
     {
-        _zombie.GetComponent<Zombies>().Life -= damage;
-        _zombie.GetComponent<Zombies>().Death();
-        Debug.Log(_zombie.GetComponent<Zombies>().Life);
+        if (armsData.automatic == false)
+        {
+            _zombie.GetComponent<Zombies>().Life -= damage;
+            _zombie.GetComponent<Zombies>().Death();
+            Debug.Log(_zombie.GetComponent<Zombies>().Life);
+            TouchActivate = false;
+        }
+
+        if (armsData.automatic == true)
+        {
+
+        }
     }
 }

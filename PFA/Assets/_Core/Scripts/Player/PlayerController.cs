@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
 
     public WeaponsControls Arms;
-
+    
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -114,10 +115,11 @@ public class PlayerController : MonoBehaviour
     public void RunPerformed(InputAction.CallbackContext _ctx) => sprint = _ctx.ReadValue<float>() > 0;
     public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
     public void JumpPerformed(InputAction.CallbackContext _ctx) => jumpPerformed = _ctx.performed;
-    public void ShootPerformed(InputAction.CallbackContext _ctx) => Arms.Shoot();
+    public void ShootPerformed(InputAction.CallbackContext _ctx) => Arms.TouchActivate = _ctx.started ;
+    public void ShootCanceled(InputAction.CallbackContext _ctx) => Arms.TouchActivate = _ctx.canceled;
     public void AimPerformed(InputAction.CallbackContext _ctx) => Arms.Aim();
     public void NoAimPerformed(InputAction.CallbackContext _ctx) => Arms.NoAim();
-
+    
     private void OnDisable()
     {
         AimPerformed();
