@@ -82,6 +82,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""NoAim"",
+                    ""type"": ""Button"",
+                    ""id"": ""fea297a9-de18-4c90-a288-e23f1a57da6f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Reload"",
                     ""type"": ""Button"",
                     ""id"": ""4bbc6dc0-8561-4c1a-b9f0-33a4a5e2be22"",
@@ -158,7 +167,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""04cbc734-e185-4577-b4ff-f9464ef4a7e7"",
                     ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Aim"",
@@ -219,6 +228,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Run"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9054f544-1447-4ec0-816a-2281a1504fe8"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NoAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -233,6 +253,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Run = m_Player.FindAction("Run", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
+        m_Player_NoAim = m_Player.FindAction("NoAim", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Options = m_Player.FindAction("Options", throwIfNotFound: true);
@@ -303,6 +324,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Run;
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Aim;
+    private readonly InputAction m_Player_NoAim;
     private readonly InputAction m_Player_Reload;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Options;
@@ -316,6 +338,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Run => m_Wrapper.m_Player_Run;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
+        public InputAction @NoAim => m_Wrapper.m_Player_NoAim;
         public InputAction @Reload => m_Wrapper.m_Player_Reload;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Options => m_Wrapper.m_Player_Options;
@@ -346,6 +369,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Aim.started += instance.OnAim;
             @Aim.performed += instance.OnAim;
             @Aim.canceled += instance.OnAim;
+            @NoAim.started += instance.OnNoAim;
+            @NoAim.performed += instance.OnNoAim;
+            @NoAim.canceled += instance.OnNoAim;
             @Reload.started += instance.OnReload;
             @Reload.performed += instance.OnReload;
             @Reload.canceled += instance.OnReload;
@@ -377,6 +403,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Aim.started -= instance.OnAim;
             @Aim.performed -= instance.OnAim;
             @Aim.canceled -= instance.OnAim;
+            @NoAim.started -= instance.OnNoAim;
+            @NoAim.performed -= instance.OnNoAim;
+            @NoAim.canceled -= instance.OnNoAim;
             @Reload.started -= instance.OnReload;
             @Reload.performed -= instance.OnReload;
             @Reload.canceled -= instance.OnReload;
@@ -411,6 +440,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
+        void OnNoAim(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnOptions(InputAction.CallbackContext context);

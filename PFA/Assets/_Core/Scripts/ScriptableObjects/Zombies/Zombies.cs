@@ -15,7 +15,7 @@ public class Zombies : MonoBehaviour
     private GameObject Player;
     private NavMeshAgent agent;
 
-    private float life;
+    public float Life;
 
     private void Awake()
     {
@@ -25,8 +25,6 @@ public class Zombies : MonoBehaviour
         agent.angularSpeed = 100;
         agent.acceleration = 100;
         agent.stoppingDistance = DataSources.StopDistance;
-
-        life = DataSources.Life;
         
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
@@ -34,13 +32,13 @@ public class Zombies : MonoBehaviour
     private void Start()
     {
         Instantiate(DataSources.Skin, transform);
+        Life = DataSources.Life;
     }
 
     private void Update()
     {
         GoToPlayer();
         StartCoroutine("DegatTime");
-        Death();
     }
 
     /*
@@ -69,11 +67,12 @@ public class Zombies : MonoBehaviour
         agent.SetDestination(Player.transform.position);
     }
 
-    void Death()
+    public void Death()
     {
-        if (life <= 0)
+        Debug.Log(Life);
+        if (Life <= 0)
         {
-            gameManager.NbZombies--;
+            //gameManager.NbZombies--;
             Destroy(gameObject);
         }
     }
