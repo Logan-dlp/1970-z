@@ -10,14 +10,14 @@ public class WeaponsControls : MonoBehaviour
 {
 
     public WeaponsData ArmsData;
-    
     private Camera camPlayer;
-    
     public bool TouchActivate = false;
-    
+    private int charge;
+
     private void Start()
     {
         camPlayer = GetComponentInParent<Camera>();
+        RealoadArmes();
     }
 
     private void Update()
@@ -29,25 +29,33 @@ public class WeaponsControls : MonoBehaviour
                 Color.red);
         }
 
-        if (ArmsData.automatic == true)
+        if (charge > 0)
         {
-            if (TouchActivate == true)
+            if (ArmsData.automatic == true)
             {
-                StartCoroutine("LapsTimeToShoot");
+                if (TouchActivate == true)
+                {
+                    StartCoroutine("LapsTimeToShoot");
+                }
+            }
+            else
+            {
+                if (TouchActivate == true)
+                {
+                    Shoot();
+                    TouchActivate = false;
+                }
             }
         }
         else
         {
-            if (TouchActivate == true)
-            {
-                Shoot();
-                TouchActivate = false;
-            }
+            StartCoroutine("RealoadCharger");
         }
     }
 
     private void Shoot()
     {
+        charge--;
         RaycastHit hit;
         if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, ArmsData.range))
         {
@@ -66,6 +74,19 @@ public class WeaponsControls : MonoBehaviour
     public void NoAim()
     {
         camPlayer.fieldOfView = 60;
+    }
+
+    public void RealoadArmes()
+    {
+        charge = ArmsData.Charge;
+    }
+
+    public IEnumerator RealoadCharger()
+    {
+        Debug.Log("Je rechage !");
+        yield return new WaitForSeconds(ArmsData.RealoadTime);
+        RealoadArmes();
+        Debug.Log("c'est recharger !");
     }
 
     private void TakeDamage(Zombies _zombie)

@@ -10,21 +10,15 @@ public class WeaponsData : ScriptableObject
     public string Name;
     
     public GameObject Skin;
+    public AudioSource SoundShoot;
     public ParticleSystem ParticuleShoot;
     
-    public float RealoadTime; // Temps de recharges -> animations /// Faire une couroutine (à tester)
-    public float Damage;
+    public int Charge;
     
-    /// <summary>
-    /// Au bout de combien de balles l'arme se recharge automatiquement.
-    /// </summary>
-    public int Reaload; //recharge � 0 quand il y a plus de balles
-
-    public AudioSource SoundShoot;
-
-    public Transform Player_cam;
+    public float RealoadTime;
+    public float Damage;
     public float range;
+    public float AutomaticTimeShoot;
     
     public bool automatic;
-    public float AutomaticTimeShoot;
 }

@@ -15,6 +15,7 @@ MonoBehaviour:
   Name: AK-47
   Skin: {fileID: 0}
   ParticuleShoot: {fileID: 0}
+  Charge: 30
   RealoadTime: 1
   Damage: 10
   Reaload: 12
