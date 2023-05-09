@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,17 +14,18 @@ public class WeaponsControls : MonoBehaviour
     private Camera camPlayer;
     public bool TouchActivate = false;
     private int charge;
+    public GameObject Texture;
 
     private void Start()
     {
         camPlayer = GetComponentInParent<Camera>();
-        RealoadArmes();
+        Reload();
     }
 
     private void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, ArmsData.range))
+        if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, 100))
         {
             Debug.DrawRay(camPlayer.transform.position, camPlayer.transform.TransformDirection(Vector3.forward) * hit.distance,
                 Color.red);
@@ -57,7 +59,7 @@ public class WeaponsControls : MonoBehaviour
     {
         charge--;
         RaycastHit hit;
-        if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, ArmsData.range))
+        if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, 100))
         {
             if (hit.collider.gameObject.GetComponent<Zombies>())
             {
@@ -79,6 +81,18 @@ public class WeaponsControls : MonoBehaviour
     public void RealoadArmes()
     {
         charge = ArmsData.Charge;
+    }
+
+    public void Reload()
+    {
+        Texture.GetComponent<MeshFilter>().mesh = ArmsData.Skin.GetComponentInChildren<MeshFilter>().mesh;
+        Debug.Log(ArmsData.Skin.GetComponentInChildren<MeshFilter>().mesh);
+        Texture.GetComponent<MeshRenderer>().materials = ArmsData.Skin.GetComponentInChildren<MeshRenderer>().materials;
+
+        Texture.transform.position = ArmsData.Position;
+        Texture.transform.rotation = Quaternion.Euler(ArmsData.Rotation);
+        
+        RealoadArmes();
     }
 
     public IEnumerator RealoadCharger()

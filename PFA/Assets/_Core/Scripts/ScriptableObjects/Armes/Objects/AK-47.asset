@@ -13,14 +13,11 @@ MonoBehaviour:
   m_Name: AK-47
   m_EditorClassIdentifier: 
   Name: AK-47
-  Skin: {fileID: 0}
-  ParticuleShoot: {fileID: 0}
+  Position: {x: 0, y: 0, z: 0}
+  Rotation: {x: 0, y: 0, z: 0}
+  Skin: {fileID: 8104540769267837972, guid: d642eb8943cca104db356f255e7007bd, type: 3}
   Charge: 30
   RealoadTime: 1
   Damage: 10
-  Reaload: 12
-  SoundShoot: {fileID: 0}
-  Player_cam: {fileID: 0}
-  range: 100
-  automatic: 1
   AutomaticTimeShoot: 1
+  automatic: 1

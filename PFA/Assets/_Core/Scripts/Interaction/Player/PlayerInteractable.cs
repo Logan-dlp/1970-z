@@ -7,12 +7,15 @@ using UnityEngine.UI;
 
 public class PlayerInteractable : MonoBehaviour
 {
-    public float InteractRange;
     public GameObject InteractUI;
     public GameObject PriceUI;
     public GameObject LackOfCoinUI;
+    
     private PlayerInput playerInput;
     private Player player;
+    
+    public float InteractRange;
+    
     private bool interact = false;
 
     private void Start()
