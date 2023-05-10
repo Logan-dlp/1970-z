@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private MultiPlayersGestion multiPlayersGestion;
     public float PlayerLife = 100;
     public int Coin = 0;
+    public GameObject[] Weapons;
 
     private void Start()
     {

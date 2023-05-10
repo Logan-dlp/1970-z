@@ -5,16 +5,36 @@ using UnityEngine;
 [RequireComponent(typeof(ItemsSettings))]
 public class ArmesInteraction : MonoBehaviour, IInteractable
 {
-    public WeaponsData Data;
+    public GameObject Arme;
     public bool Interactable = false;
     
     public void Interact(GameObject _player)
     {
         if (Interactable == true)
         {
-            _player.GetComponentInChildren<WeaponsControls>().ArmsData = Data;
-            _player.GetComponentInChildren<WeaponsControls>().Reload();
-            Debug.Log("Tu as une arme ! " + gameObject.GetComponent<WeaponsControls>().ArmsData.Name);
+            GameObject[] _tabWeapons = _player.GetComponent<Player>().Weapons;
+            WeaponsOff(_tabWeapons);
+            WeaponsTab(_tabWeapons).SetActive(true);
         }
+    }
+
+    void WeaponsOff(GameObject[] _weapons)
+    {
+        for (int i = 0; i < _weapons.Length; i++)
+        {
+            _weapons[i].SetActive(false);
+        }
+    }
+
+    GameObject WeaponsTab(GameObject[] _weapons)
+    {
+        for (int i = 0; i < _weapons.Length; i++)
+        {
+            if (Arme == _weapons[i])
+            {
+                return _weapons[i];
+            }
+        }
+        return gameObject;
     }
 }

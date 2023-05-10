@@ -19,7 +19,7 @@ public class WeaponsControls : MonoBehaviour
     private void Start()
     {
         camPlayer = GetComponentInParent<Camera>();
-        Reload();
+        RealoadArmes();
     }
 
     private void Update()
@@ -81,18 +81,6 @@ public class WeaponsControls : MonoBehaviour
     public void RealoadArmes()
     {
         charge = ArmsData.Charge;
-    }
-
-    public void Reload()
-    {
-        Texture.GetComponent<MeshFilter>().mesh = ArmsData.Skin.GetComponentInChildren<MeshFilter>().mesh;
-        Debug.Log(ArmsData.Skin.GetComponentInChildren<MeshFilter>().mesh);
-        Texture.GetComponent<MeshRenderer>().materials = ArmsData.Skin.GetComponentInChildren<MeshRenderer>().materials;
-
-        Texture.transform.position = ArmsData.Position;
-        Texture.transform.rotation = Quaternion.Euler(ArmsData.Rotation);
-        
-        RealoadArmes();
     }
 
     public IEnumerator RealoadCharger()

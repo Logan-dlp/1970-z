@@ -18,7 +18,7 @@ public class RandomItems : MonoBehaviour, IInteractable
         UnSpawnArmes();
     }
 
-    /// Retourne un objet aléatoire du tableau "Armes"
+    /// Retourne un objet aléatoire du tableau "Weapons"
     GameObject Rand()
     {
         int rand = Random.Range(0, Armes.Length);
