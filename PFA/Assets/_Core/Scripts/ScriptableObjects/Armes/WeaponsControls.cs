@@ -92,6 +92,8 @@ public class WeaponsControls : MonoBehaviour
     private void TakeDamage(Zombies _zombie)
     {
         _zombie.Life -= ArmsData.Damage;
+        Debug.Log(_zombie.Life);
+        Debug.Log(charge);
         _zombie.Death(gameObject.GetComponentInParent<Player>());
     }
 

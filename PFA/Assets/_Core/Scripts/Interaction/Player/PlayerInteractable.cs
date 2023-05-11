@@ -62,6 +62,7 @@ public class PlayerInteractable : MonoBehaviour
                     if (player.Coin >= _itemsSettings.Price)
                     {
                         _interactable.Interact(player.gameObject);
+                        player.Coin -= _itemsSettings.Price;
                         interact = false;
                     }
                     else

@@ -30,7 +30,7 @@ public class ArmesInteraction : MonoBehaviour, IInteractable
     {
         for (int i = 0; i < _weapons.Length; i++)
         {
-            if (Arme == _weapons[i])
+            if (Arme.GetComponent<WeaponsControls>().ArmsData.Name == _weapons[i].GetComponent<WeaponsControls>().ArmsData.Name)
             {
                 return _weapons[i];
             }
