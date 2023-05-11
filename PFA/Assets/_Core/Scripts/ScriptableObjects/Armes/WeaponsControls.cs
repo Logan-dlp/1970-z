@@ -9,12 +9,10 @@ using UnityEngine.UI;
 
 public class WeaponsControls : MonoBehaviour
 {
-
     public WeaponsData ArmsData;
     private Camera camPlayer;
     public bool TouchActivate = false;
     private int charge;
-    public GameObject Texture;
 
     private void Start()
     {
@@ -94,7 +92,7 @@ public class WeaponsControls : MonoBehaviour
     private void TakeDamage(Zombies _zombie)
     {
         _zombie.Life -= ArmsData.Damage;
-        _zombie.Death();
+        _zombie.Death(gameObject.GetComponentInParent<Player>());
     }
 
     IEnumerator LapsTimeToShoot()

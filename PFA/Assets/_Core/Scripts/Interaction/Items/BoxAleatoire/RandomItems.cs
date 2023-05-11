@@ -61,6 +61,7 @@ public class RandomItems : MonoBehaviour, IInteractable
 
     public void Interact(GameObject _player)
     {
+        Debug.Log("ça bug ?");
         StartCoroutine("AnimationAleatoire");
     }
 }

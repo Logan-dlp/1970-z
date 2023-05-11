@@ -9,11 +9,6 @@ public class WeaponsData : ScriptableObject
 {
     public string Name;
 
-    public Vector3 Position;
-    public Vector3 Rotation;
-    
-    public GameObject Skin;
-
     public int Charge;
     
     public float RealoadTime;

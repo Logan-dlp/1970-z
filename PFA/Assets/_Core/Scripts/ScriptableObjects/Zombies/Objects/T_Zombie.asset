@@ -20,4 +20,5 @@ MonoBehaviour:
   DegatTime: 1
   Speed: 2.5
   StopDistance: 3
+  Awards: 10
   SoundZombie: {fileID: 0}

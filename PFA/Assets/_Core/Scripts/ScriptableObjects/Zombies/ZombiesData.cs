@@ -20,5 +20,7 @@ public class ZombiesData : ScriptableObject
     public float Speed;
     public float StopDistance;
 
+    public int Awards;
+
     public AudioSource SoundZombie;
 }

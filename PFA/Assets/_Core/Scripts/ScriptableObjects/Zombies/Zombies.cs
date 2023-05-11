@@ -67,12 +67,12 @@ public class Zombies : MonoBehaviour
         agent.SetDestination(Player.transform.position);
     }
 
-    public void Death()
+    public void Death(Player _player)
     {
-        Debug.Log(Life);
         if (Life <= 0)
         {
-            //gameManager.NbZombies--;
+            gameManager.NbZombies--;
+            _player.Coin += DataSources.Awards;
             Destroy(gameObject);
         }
     }
