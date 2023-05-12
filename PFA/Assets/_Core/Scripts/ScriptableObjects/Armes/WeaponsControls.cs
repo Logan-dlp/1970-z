@@ -10,10 +10,11 @@ using UnityEngine.UI;
 public class WeaponsControls : MonoBehaviour
 {
     public WeaponsData WeaponsData;
-    private Camera camPlayer;
-    public bool TouchActivate = false;
+    [HideInInspector] public bool TouchActivate = false;
+    
     private int charge;
-
+    private Camera camPlayer;
+    
     private void Start()
     {
         camPlayer = GetComponent<Camera>();

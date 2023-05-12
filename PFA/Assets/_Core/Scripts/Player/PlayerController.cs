@@ -12,16 +12,18 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Player settings")]
     public float Speed = 4f;
-    private bool sprint = false;
     public float JumpForce = 5f;
     public Vector2 Sensitivity = Vector2.one;
-    private Transform Playercam;
-
+    
     private Vector3 velocity;
     private Vector2 moveInputs, lookInputs;
-    private bool jumpPerformed;
+    
+    private Transform Playercam;
     private CharacterController characterController;
     private WeaponsControls Arms;
+    
+    private bool jumpPerformed;
+    private bool sprint = false;
 
     private void Start()
     {

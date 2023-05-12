@@ -8,28 +8,26 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(ItemsSettings))]
 public class RandomItems : MonoBehaviour, IInteractable
 {
-    public GameObject[] Armes;
+    public GameObject[] Weapons;
     public float TimeWait = .2f;
     public int NbBoucle = 4;
-    public bool Interactable = false;
 
     private void Start()
     {
         UnSpawnArmes();
     }
-
-    /// Retourne un objet aléatoire du tableau "Weapons"
+    
     GameObject Rand()
     {
-        int rand = Random.Range(0, Armes.Length);
-        return Armes[rand];
+        int rand = Random.Range(0, Weapons.Length);
+        return Weapons[rand];
     }
     
     void UnSpawnArmes()
     {
-        for (int i = 0; i < Armes.Length; i++)
+        for (int i = 0; i < Weapons.Length; i++)
         {
-            Armes[i].SetActive(false);
+            Weapons[i].SetActive(false);
         }
     }
 
@@ -39,11 +37,11 @@ public class RandomItems : MonoBehaviour, IInteractable
         UnSpawnArmes();
         for (int i = 0; i < NbBoucle; i++)
         {
-            for (int j = 0; j < Armes.Length; j++)
+            for (int j = 0; j < Weapons.Length; j++)
             {
-                Armes[j].SetActive(true);
+                Weapons[j].SetActive(true);
                 yield return new WaitForSeconds(TimeWait);
-                Armes[j].SetActive(false);
+                Weapons[j].SetActive(false);
             }
         }
         GameObject _arme = Rand();
@@ -53,9 +51,9 @@ public class RandomItems : MonoBehaviour, IInteractable
 
     void ResetInteractable()
     {
-        for (int i = 0; i < Armes.Length; i++)
+        for (int i = 0; i < Weapons.Length; i++)
         {
-            Armes[i].GetComponent<ArmesInteraction>().Interactable = false;
+            Weapons[i].GetComponent<ArmesInteraction>().Interactable = false;
         }
     }
 

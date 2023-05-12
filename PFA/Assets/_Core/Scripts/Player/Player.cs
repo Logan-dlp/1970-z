@@ -7,12 +7,14 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController)), RequireComponent(typeof(PlayerController)), RequireComponent(typeof(PlayerInteractable)), RequireComponent(typeof(PlayerInput))]
 public class Player : MonoBehaviour
 {
+    public GameObject[] Weapons;
+    
+    [HideInInspector] public float PlayerLife = 100;
+    [HideInInspector] public int Coin = 0;
+    
     private GameManager gameManager;
     private MultiPlayersGestion multiPlayersGestion;
-    public float PlayerLife = 100;
-    public int Coin = 0;
-    public GameObject[] Weapons;
-
+    
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();

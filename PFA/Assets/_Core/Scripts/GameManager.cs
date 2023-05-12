@@ -7,12 +7,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInputManager)), RequireComponent(typeof(MultiPlayersGestion))]
 public class GameManager : MonoBehaviour
 {
-    public List<GameObject> Player;
+    [HideInInspector] public List<GameObject> Player;
     public Transform[] SpawnPlayers;
     public Transform[] SpawnZombies;
     public GameObject[] Zombies;
-    public int NbZombies = 0;
-    public int NbManches = 0;
+    [HideInInspector] public int NbZombies = 0;
+    [HideInInspector] public int NbManches = 0;
     
     private MultiPlayersGestion multiPlayersGestion;
 

@@ -8,14 +8,12 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Zombies : MonoBehaviour
 {
-    private GameManager gameManager;
-    
     public ZombiesData DataSources;
+    public float Life;
     
+    private GameManager gameManager;
     private GameObject Player;
     private NavMeshAgent agent;
-
-    public float Life;
 
     private void Awake()
     {

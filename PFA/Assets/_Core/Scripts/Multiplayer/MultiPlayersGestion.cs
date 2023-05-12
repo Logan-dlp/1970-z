@@ -6,12 +6,13 @@ using UnityEngine.InputSystem;
 
 public class MultiPlayersGestion : MonoBehaviour
 {
+    [HideInInspector] public int NbPlayer = 0;
+    
     private GameManager gameManager;
     private PlayerInputManager inputManager;
-    public int NbPlayer = 0;
     private Camera player1cam;
     private Camera player2cam;
-
+    
     private void Awake()
     {
         inputManager = GetComponent<PlayerInputManager>();

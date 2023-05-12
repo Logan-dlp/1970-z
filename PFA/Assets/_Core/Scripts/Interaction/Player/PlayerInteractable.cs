@@ -11,11 +11,11 @@ public class PlayerInteractable : MonoBehaviour
     public GameObject PriceUI;
     public GameObject LackOfCoinUI;
     
-    private PlayerInput playerInput;
-    private Player player;
-    
     public float InteractRange;
     
+    private PlayerInput playerInput;
+    private Player player;
+
     private bool interact = false;
 
     private void Start()

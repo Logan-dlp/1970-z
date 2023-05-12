@@ -6,12 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(ItemsSettings))]
 public class ArmesInteraction : MonoBehaviour, IInteractable
 {
-    private WeaponsControls weaponsControls;
     
     public GameObject Weapon;
     public WeaponsData Data;
+    
     public bool Interactable = false;
     
+    private WeaponsControls weaponsControls;
 
     public void Interact(GameObject _player)
     {
