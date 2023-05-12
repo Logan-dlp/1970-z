@@ -9,14 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4318788228719903426}
-  - component: {fileID: 2362016092261372018}
   m_Layer: 0
   m_Name: M16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4318788228719903426
 Transform:
   m_ObjectHideFlags: 0
@@ -33,20 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 90, z: 0}
---- !u!114 &2362016092261372018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453885719851607435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58cbeee65be12641a3f01ddf1b41e34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ArmsData: {fileID: 11400000, guid: a8aabc3ee8f26754f94be035cfd9073f, type: 2}
-  TouchActivate: 0
 --- !u!1 &3260418006404930449
 GameObject:
   m_ObjectHideFlags: 0

@@ -248,7 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c034fb533af48438e5d19d85e52f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Arme: {fileID: 7373396169115998167, guid: cd05576fd21519843af158ec25ddf2d6, type: 3}
+  Weapon: {fileID: 7373396169115998167, guid: cd05576fd21519843af158ec25ddf2d6, type: 3}
+  Data: {fileID: 11400000, guid: a378ff2d89ea7d74086bf2a1c6f1d836, type: 2}
   Interactable: 0
 --- !u!1 &9053105216213361879
 GameObject:

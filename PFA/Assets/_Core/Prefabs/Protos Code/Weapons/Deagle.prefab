@@ -207,14 +207,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1988076085569400662}
-  - component: {fileID: 3052598963362097973}
   m_Layer: 0
   m_Name: Deagle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1988076085569400662
 Transform:
   m_ObjectHideFlags: 0
@@ -232,17 +231,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &3052598963362097973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7373396169115998167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58cbeee65be12641a3f01ddf1b41e34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ArmsData: {fileID: 11400000, guid: a378ff2d89ea7d74086bf2a1c6f1d836, type: 2}
-  TouchActivate: 0

@@ -164,5 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4c034fb533af48438e5d19d85e52f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Arme: {fileID: 453885719851607435, guid: 44470472929b9d245acfb72a9d22967f, type: 3}
+  Weapon: {fileID: 453885719851607435, guid: 44470472929b9d245acfb72a9d22967f, type: 3}
+  Data: {fileID: 11400000, guid: a8aabc3ee8f26754f94be035cfd9073f, type: 2}
   Interactable: 0

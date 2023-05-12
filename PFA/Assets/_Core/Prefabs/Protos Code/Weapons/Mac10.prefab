@@ -11,14 +11,13 @@ GameObject:
   - component: {fileID: 362483876824590877}
   - component: {fileID: 6075538188289208615}
   - component: {fileID: 2843933995025650783}
-  - component: {fileID: 3601266849923508479}
   m_Layer: 0
   m_Name: Mac10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &362483876824590877
 Transform:
   m_ObjectHideFlags: 0
@@ -90,17 +89,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3601266849923508479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8762784852675874423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58cbeee65be12641a3f01ddf1b41e34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ArmsData: {fileID: 11400000, guid: f66feab1fb0b96c47834c59ab75d8beb, type: 2}
-  TouchActivate: 0

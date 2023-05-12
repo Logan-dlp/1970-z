@@ -9,14 +9,14 @@ using UnityEngine.UI;
 
 public class WeaponsControls : MonoBehaviour
 {
-    public WeaponsData ArmsData;
+    public WeaponsData WeaponsData;
     private Camera camPlayer;
     public bool TouchActivate = false;
     private int charge;
 
     private void Start()
     {
-        camPlayer = GetComponentInParent<Camera>();
+        camPlayer = GetComponent<Camera>();
         RealoadArmes();
     }
 
@@ -31,7 +31,7 @@ public class WeaponsControls : MonoBehaviour
 
         if (charge > 0)
         {
-            if (ArmsData.automatic == true)
+            if (WeaponsData.automatic == true)
             {
                 if (TouchActivate == true)
                 {
@@ -55,6 +55,7 @@ public class WeaponsControls : MonoBehaviour
 
     private void Shoot()
     {
+        Debug.Log("Shoot");
         charge--;
         RaycastHit hit;
         if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, 100))
@@ -78,20 +79,20 @@ public class WeaponsControls : MonoBehaviour
 
     public void RealoadArmes()
     {
-        charge = ArmsData.Charge;
+        charge = WeaponsData.Charge;
     }
 
     public IEnumerator RealoadCharger()
     {
         Debug.Log("Je rechage !");
-        yield return new WaitForSeconds(ArmsData.RealoadTime);
+        yield return new WaitForSeconds(WeaponsData.RealoadTime);
         RealoadArmes();
         Debug.Log("c'est recharger !");
     }
 
     private void TakeDamage(Zombies _zombie)
     {
-        _zombie.Life -= ArmsData.Damage;
+        _zombie.Life -= WeaponsData.Damage;
         Debug.Log(_zombie.Life);
         Debug.Log(charge);
         _zombie.Death(gameObject.GetComponentInParent<Player>());
@@ -99,7 +100,7 @@ public class WeaponsControls : MonoBehaviour
 
     IEnumerator LapsTimeToShoot()
     {
-        yield return new WaitForSeconds(ArmsData.AutomaticTimeShoot);
+        yield return new WaitForSeconds(WeaponsData.AutomaticTimeShoot);
         Shoot();
         StopCoroutine("LapsTimeToShoot");
     }

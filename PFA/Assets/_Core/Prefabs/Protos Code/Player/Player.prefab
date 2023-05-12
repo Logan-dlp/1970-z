@@ -484,6 +484,7 @@ GameObject:
   - component: {fileID: 6859399807312564828}
   - component: {fileID: 8325608515169713651}
   - component: {fileID: 892590604815714567}
+  - component: {fileID: 8439335724117504114}
   m_Layer: 0
   m_Name: Player_cam
   m_TagString: MainCamera
@@ -613,6 +614,20 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &8439335724117504114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4947149165525070841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58cbeee65be12641a3f01ddf1b41e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ArmsData: {fileID: 11400000, guid: 94a83d92542f4944fb5a1a64d1022f2b, type: 2}
+  TouchActivate: 0
 --- !u!1 &5836797831345513100
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,11 +1004,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mac10
       objectReference: {fileID: 0}
-    - target: {fileID: 8762784852675874423, guid: 87d3f7be6e770cd488af48d9ebe8089a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1023,11 +1033,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: M16
-      objectReference: {fileID: 0}
-    - target: {fileID: 453885719851607435, guid: 44470472929b9d245acfb72a9d22967f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4318788228719903426, guid: 44470472929b9d245acfb72a9d22967f,
         type: 3}
@@ -1113,11 +1118,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AK-47
-      objectReference: {fileID: 0}
-    - target: {fileID: 1905225721960759420, guid: 18191ddb505df4f4298bfe639ae56f1c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2423566219512054376, guid: 18191ddb505df4f4298bfe639ae56f1c,
         type: 3}
@@ -1259,11 +1259,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Deagle
       objectReference: {fileID: 0}
-    - target: {fileID: 7373396169115998167, guid: cd05576fd21519843af158ec25ddf2d6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1293,11 +1288,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Glock
-      objectReference: {fileID: 0}
-    - target: {fileID: 1547715185957463970, guid: 4bf9805efab375e44bc44f7a716e8521,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5325059591004007723, guid: 4bf9805efab375e44bc44f7a716e8521,
         type: 3}

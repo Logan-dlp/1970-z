@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(ItemsSettings))]
 public class ArmesInteraction : MonoBehaviour, IInteractable
 {
-    public GameObject Arme;
+    private WeaponsControls weaponsControls;
+    
+    public GameObject Weapon;
+    public WeaponsData Data;
     public bool Interactable = false;
     
+
     public void Interact(GameObject _player)
     {
         if (Interactable == true)
@@ -15,6 +20,7 @@ public class ArmesInteraction : MonoBehaviour, IInteractable
             GameObject[] _tabWeapons = _player.GetComponent<Player>().Weapons;
             WeaponsOff(_tabWeapons);
             WeaponsTab(_tabWeapons).SetActive(true);
+            _player.GetComponentInChildren<WeaponsControls>().WeaponsData = Data;
         }
     }
 
@@ -30,7 +36,7 @@ public class ArmesInteraction : MonoBehaviour, IInteractable
     {
         for (int i = 0; i < _weapons.Length; i++)
         {
-            if (Arme.GetComponent<WeaponsControls>().ArmsData.Name == _weapons[i].GetComponent<WeaponsControls>().ArmsData.Name)
+            if (Weapon.name == _weapons[i].name)
             {
                 return _weapons[i];
             }
