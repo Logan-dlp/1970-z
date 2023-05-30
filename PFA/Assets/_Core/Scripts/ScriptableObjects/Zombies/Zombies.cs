@@ -71,6 +71,10 @@ public class Zombies : MonoBehaviour
         {
             gameManager.NbZombies--;
             _player.Coin += DataSources.Awards;
+            if (DataSources.IsBoss)
+            {
+                gameManager.NbBoss--;
+            }
             Destroy(gameObject);
         }
     }

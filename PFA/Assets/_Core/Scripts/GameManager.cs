@@ -16,7 +16,9 @@ public class GameManager : MonoBehaviour
     public GameObject DoorFinal;
     public int NbLeverEnd;
     public string SceneGameOver;
+    public string SceneWin;
     [HideInInspector] public int NbZombies = 0;
+    [HideInInspector] public int NbBoss = 0;
     [HideInInspector] public int NbManches = 0;
     [HideInInspector] public int Nblever = 0;
     
@@ -69,11 +71,13 @@ public class GameManager : MonoBehaviour
         if (Nblever == NbLeverEnd)
         {
             Destroy(DoorFinal);
+            
             for (int i = 0; i < SpawnBossZombies.Length; i++)
             {
                 for (int j = 0; j < BossZombies.Length; j++)
                 {
                     Instantiate(BossZombies[j], SpawnBossZombies[i]);
+                    NbBoss++;
                 }
             }
         }

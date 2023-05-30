@@ -6,6 +6,7 @@ using UnityEngine;
 public class ZombiesData : ScriptableObject
 {
     public string Name;
+    public bool IsBoss;
     public GameObject Skin;
 
     /*
