@@ -4,26 +4,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInputManager)), RequireComponent(typeof(MultiPlayersGestion))]
+[RequireComponent(typeof(PlayerInputManager)), RequireComponent(typeof(MultiPlayersGestion)), RequireComponent(typeof(SceneManager))]
 public class GameManager : MonoBehaviour
 {
     [HideInInspector] public List<GameObject> Player;
     public Transform[] SpawnPlayers;
     public Transform[] SpawnZombies;
     public GameObject[] Zombies;
+    public Transform[] SpawnBossZombies;
+    public GameObject[] BossZombies;
+    public GameObject DoorFinal;
+    public int NbLeverEnd;
+    public string SceneGameOver;
     [HideInInspector] public int NbZombies = 0;
     [HideInInspector] public int NbManches = 0;
+    [HideInInspector] public int Nblever = 0;
     
     private MultiPlayersGestion multiPlayersGestion;
+    private SceneManager sceneManager;
 
     private void Start()
     {
         multiPlayersGestion = GetComponent<MultiPlayersGestion>();
+        sceneManager = GetComponent<SceneManager>();
     }
 
     private void Update()
     {
         SpawnZombie();
+        SpawnBoss();
     }
 
     public bool InGame()
@@ -35,8 +44,7 @@ public class GameManager : MonoBehaviour
     {
         if (InGame() && Player.Count <= 0)
         {
-            // changement de scènes à mettre a la mort des players
-            Debug.Log("GameOver !");
+            sceneManager.Load(SceneGameOver);
         }
     }
 
@@ -51,6 +59,21 @@ public class GameManager : MonoBehaviour
                 {
                     Instantiate(Zombies[0], _spawnZombie);
                     NbZombies++;
+                }
+            }
+        }
+    }
+
+    void SpawnBoss()
+    {
+        if (Nblever == NbLeverEnd)
+        {
+            Destroy(DoorFinal);
+            for (int i = 0; i < SpawnBossZombies.Length; i++)
+            {
+                for (int j = 0; j < BossZombies.Length; j++)
+                {
+                    Instantiate(BossZombies[j], SpawnBossZombies[i]);
                 }
             }
         }
