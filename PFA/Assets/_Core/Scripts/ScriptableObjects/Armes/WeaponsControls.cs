@@ -71,6 +71,7 @@ public class WeaponsControls : MonoBehaviour
     public void Aim()
     {
         camPlayer.fieldOfView = 40;
+        Debug.Log("Aim");
     }
     
     public void NoAim()

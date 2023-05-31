@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 _move = transform.forward * velocity.z + transform.right * velocity.x + transform.up * velocity.y;
 
-        if (sprint)
+       if (sprint)
         {
             // Calcul du déplacement du joueur quand il court
             characterController.Move(_move * 2 * Time.deltaTime);

@@ -1441,6 +1441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6060288750445646041}
   - component: {fileID: 2908309715025673326}
+  - component: {fileID: 9157085394714981738}
   - component: {fileID: 4490780955766175987}
   - component: {fileID: 9157085394714981737}
   m_Layer: 0
@@ -2430,7 +2431,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.19
+  near clip plane: 0.15
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -2959,7 +2960,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242580453052492175}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!4 &4534532928425296972
 Transform:
   m_ObjectHideFlags: 0
@@ -3777,11 +3778,35 @@ MonoBehaviour:
     m_ActionId: e57e8982-a73c-45dc-9f32-ef7e55e23f88
     m_ActionName: Player/Run[/DualShock4GamepadHID/leftStick/left]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3815551512187243889}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ShootPerformed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 5ba7fb1c-5b2f-42f1-87d1-53fd5f537ba6
     m_ActionName: Player/Shoot[/DualShock4GamepadHID/rightTrigger]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3815551512187243889}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: AimPerformed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e2d3d0f7-422b-4421-ae13-ba2803396da7
     m_ActionName: Player/Aim[/DualShock4GamepadHID/leftTrigger]
   - m_PersistentCalls:
@@ -3797,7 +3822,19 @@ MonoBehaviour:
     m_ActionId: 657d743e-e2e1-43dc-a770-04d239a4d9a5
     m_ActionName: Player/Options[/DualShock4GamepadHID/start]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3815551512187243889}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: NoAimPerformed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: fea297a9-de18-4c90-a288-e23f1a57da6f
     m_ActionName: Player/NoAim[/DualShock4GamepadHID/leftTrigger]
   m_NeverAutoSwitchControlSchemes: 0
@@ -4627,3 +4664,17 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &9157085394714981738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242580453052492175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58cbeee65be12641a3f01ddf1b41e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponsData: {fileID: 11400000, guid: 1666d264ce70237459f531cb99c9e358, type: 2}
+  TouchActivate: 0
