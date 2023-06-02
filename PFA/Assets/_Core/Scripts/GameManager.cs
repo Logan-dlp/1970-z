@@ -8,15 +8,18 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     [HideInInspector] public List<GameObject> Player;
+    
     public Transform[] SpawnPlayers;
     public Transform[] SpawnZombies;
     public GameObject[] Zombies;
     public Transform[] SpawnBossZombies;
     public GameObject[] BossZombies;
     public GameObject DoorFinal;
+    
     public int NbLeverEnd;
     public string SceneGameOver;
     public string SceneWin;
+    
     [HideInInspector] public int NbZombies = 0;
     [HideInInspector] public int NbBoss = 0;
     [HideInInspector] public int NbManches = 0;
