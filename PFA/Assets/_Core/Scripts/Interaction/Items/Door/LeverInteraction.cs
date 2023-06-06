@@ -19,6 +19,7 @@ public class LeverInteraction : MonoBehaviour, IInteractable
         {
             gameManager.Nblever++;
             interactable = false;
+            // Faire attention a ne pas pouvoir payer 2 fois...
         }
     }
 }
