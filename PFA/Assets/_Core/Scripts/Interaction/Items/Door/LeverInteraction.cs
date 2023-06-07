@@ -7,10 +7,12 @@ public class LeverInteraction : MonoBehaviour, IInteractable
 {
     private bool interactable = true;
     private GameManager gameManager;
+    private ItemsSettings price;
 
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        price = GetComponent<ItemsSettings>();
     }
 
     public void Interact(GameObject _player)
@@ -19,7 +21,7 @@ public class LeverInteraction : MonoBehaviour, IInteractable
         {
             gameManager.Nblever++;
             interactable = false;
-            // Faire attention a ne pas pouvoir payer 2 fois...
+            price.Price = 0;
         }
     }
 }
