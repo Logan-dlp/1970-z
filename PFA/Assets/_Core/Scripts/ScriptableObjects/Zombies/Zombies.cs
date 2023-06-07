@@ -29,7 +29,6 @@ public class Zombies : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(DataSources.Skin, transform);
         Life = DataSources.Life;
     }
 
