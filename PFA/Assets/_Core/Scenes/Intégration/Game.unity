@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 584802741}
   - component: {fileID: 584802740}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,10 +443,10 @@ RectTransform:
   m_Father: {fileID: 829672959}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -582, y: -29}
-  m_SizeDelta: {x: 449.35, y: 449.3531}
+  m_AnchorMin: {x: 0.006770833, y: 0.70825934}
+  m_AnchorMax: {x: 0.048, y: 0.7811482}
+  m_AnchoredPosition: {x: -1, y: -0.5}
+  m_SizeDelta: {x: 0.6954956, y: 1.6959991}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &584802740
 MonoBehaviour:
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 4179e62ab6f92ed4393ac3110d49f092, type: 3}
+  m_Texture: {fileID: 2800000, guid: d5c85403fef03f043aa9c6bfcfa4150f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -630,7 +630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.77837044}
   m_AnchorMax: {x: 0.119, y: 1}
-  m_AnchoredPosition: {x: 7, y: -11}
+  m_AnchoredPosition: {x: 7, y: -0}
   m_SizeDelta: {x: 95.87451, y: 83.87451}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &869085880
@@ -653,7 +653,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: bdabf87b972d84b43bd8ae442dd09abf, type: 3}
+  m_Texture: {fileID: 2800000, guid: ff8f1209ae70271498d8d71d02ef1d5e, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -925,7 +925,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1129812584
 RectTransform:
   m_ObjectHideFlags: 0
