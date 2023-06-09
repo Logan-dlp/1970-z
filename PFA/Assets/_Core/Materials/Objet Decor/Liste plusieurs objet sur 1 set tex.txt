@@ -1,0 +1,17 @@
+Liste plusieurs objet sur 1 set texture:
+
+- Chaise 
+- Table
+- Caisse
+- Tono
+- petite boite en fer
+- Boite en fer
+- sac militaire
+- Sac de sable
+- medic-kit jungle
+- torche
+- carnet
+- lampe torche miliatire
+- bousole
+- Lit de camps
+- bidon
