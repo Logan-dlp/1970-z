@@ -24,6 +24,7 @@ public class WeaponsControls : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
+        Debug.DrawRay(camPlayer.transform.position, camPlayer.transform.forward * 100);
         if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, 100))
         {
             Debug.DrawRay(camPlayer.transform.position, camPlayer.transform.TransformDirection(Vector3.forward) * hit.distance,

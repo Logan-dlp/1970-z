@@ -15,6 +15,7 @@ public class PlayerInteractable : MonoBehaviour
     
     private PlayerInput playerInput;
     private Player player;
+    private Camera playerCamera;
 
     private bool interact = false;
 
@@ -22,14 +23,17 @@ public class PlayerInteractable : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         player = GetComponent<Player>();
+        playerCamera = GetComponentInChildren<Camera>();
+        
         InputAction _interact = playerInput.actions["Interact"];
         _interact.performed += InteractPerformed;
+        
         LackOfCoinUI.SetActive(false);
     }
 
     private void Update()
     {
-        Ray _r = new Ray(transform.position, transform.forward);
+        Ray _r = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
             if (Physics.Raycast(_r, out RaycastHit _hit, InteractRange))
             {
                 if (_hit.collider.gameObject.TryGetComponent(out IInteractable _interactable) && _hit.collider.gameObject.TryGetComponent(out ItemsSettings _itemsSettings))
