@@ -2069,7 +2069,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3143362013214032567}
   - component: {fileID: 6409808721309811208}
+  - component: {fileID: 5226544222049699382}
   - component: {fileID: 767276811857793724}
+  - component: {fileID: 4277013008630263900}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -2098,7 +2100,7 @@ Transform:
   - {fileID: 4770600501238157545}
   - {fileID: 8010752560431994200}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6409808721309811208
 Animator:
@@ -2121,6 +2123,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5226544222049699382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652279854311918308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6141e2864abce44b16fa9a509c8b36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DataSources: {fileID: 11400000, guid: 5b4f8838921b7f44c8163a00e91d8724, type: 2}
+  Life: 0
 --- !u!64 &767276811857793724
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2143,6 +2159,28 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!195 &4277013008630263900
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4652279854311918308}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &4692201365297308821
 GameObject:
   m_ObjectHideFlags: 0

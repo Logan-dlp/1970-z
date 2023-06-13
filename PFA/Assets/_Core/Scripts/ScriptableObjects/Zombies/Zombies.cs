@@ -15,6 +15,8 @@ public class Zombies : MonoBehaviour
     private GameObject Player;
     private NavMeshAgent agent;
 
+    private Animator ZombieDebout;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -25,6 +27,8 @@ public class Zombies : MonoBehaviour
         agent.stoppingDistance = DataSources.StopDistance;
         
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        ZombieDebout = GetComponent<Animator>();
     }
 
     private void Start()
@@ -50,6 +54,8 @@ public class Zombies : MonoBehaviour
                 if (Vector3.Distance(_player.transform.position, transform.position) < Vector3.Distance(Player.transform.position, transform.position))
                 {
                     Player = _player;
+                    ZombieDebout.SetBool("Run", true);
+                    ZombieDebout.SetBool("Attack", false);
                 }
             }
         }
@@ -82,6 +88,8 @@ public class Zombies : MonoBehaviour
     {
         if (Vector3.Distance(Player.transform.position, transform.position) <= agent.stoppingDistance)
         {
+            ZombieDebout.SetBool("Attack", true);
+            ZombieDebout.SetBool("Run", false);
             yield return new WaitForSeconds(DataSources.DegatTime);
             Player.GetComponent<Player>().PlayerLife -= DataSources.Degat;
             StopCoroutine("DegatTime");
