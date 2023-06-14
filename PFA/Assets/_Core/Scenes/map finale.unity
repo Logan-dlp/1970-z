@@ -24675,10 +24675,13 @@ MonoBehaviour:
   - {fileID: 1346169600}
   - {fileID: 1519755953}
   - {fileID: 433443452}
-  Zombies: []
+  Zombies:
+  - {fileID: 5682390866485529822, guid: 9e1ebe1905b08744489f6951386cc76c, type: 3}
+  - {fileID: 4134064497179033032, guid: a11bdf5f7c72f54408db226e28174740, type: 3}
   SpawnBossZombies:
   - {fileID: 934743385}
-  BossZombies: []
+  BossZombies:
+  - {fileID: 4652279854311918308, guid: 072b6493577816040953382ddf138c0a, type: 3}
   DoorFinal: {fileID: 1234020180}
   NbLeverEnd: 3
   SceneGameOver: 
@@ -24746,7 +24749,8 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 0}
+  m_PlayerPrefab: {fileID: 4405558841024689172, guid: 68897e69dbc1bdb4fa8ed891ed0f9c99,
+    type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
   m_FixedNumberOfSplitScreens: -1
