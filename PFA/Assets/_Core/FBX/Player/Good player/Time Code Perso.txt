@@ -1,0 +1,156 @@
+Sur unity enlever 1 frame au début et peut être aussi à la fin si nécessaire si le loop ne marche pas (que pour les anims qui loopent je pense)
+
+Ex : 15 / 65 -> 16 / 65 -> 16 / 64 (si ça ne marche tjr pas)
+
+
+Time Code, anim armes 1 main (Glock, Deagle, Mac-10) :
+
+
+- T pose : de O à 15
+
+- Idle : de 15 à 65
+
+
+	De 65 à 75 (Transition sert à rien)
+
+
+- Marche : de 75 à 125
+
+
+	De 125 à 134 (Trasition se met en pose de course peut servir)
+
+
+- Course : de 134 à 164
+
+
+	De 164 à 175 (Trasition se met en Idle peut servir)
+
+
+- Saut : de 175 à 215
+
+
+	De 215 à 225 (Transition sert à rien)
+
+
+- Tir sans visée : de 225 à 235
+
+
+	De 235 à 245 (Transition sert à rien)
+
+
+- Rechargement : de 245 à 295
+
+	De 295 à 305 (Transition sert à rien)
+
+
+- Mode Visée :
+
+	- Mettre visée : de 305 à 325
+	- Idle visée : de 325 à 355
+	- Tir avec visée : de 355 à 365
+	- Enlever visée : de 365 à 385
+
+
+	De 385 à 395 (Transition sert à rien)
+
+
+- Changement d'arme : de 395 à 440
+
+	(partie 1 : de 395 à 410 / partie 2 : de 410 à 440)
+
+Partie 1 = baisse son arme pour la changer
+Partie 2 = relève son arme pour se mettre en Idle
+
+
+	De 440 à 450 (Transition sert à rien)
+
+
+- Lancer de grenade : de 450 à 515    (pas besoin de séparer l'anim je pense)
+
+	(partie 1 : de 450 à 460 / partie 2 : de 460 à 490 / partie 3 : 490 à 515)
+
+Partie 1 = baisse son arme pour prendre la grenade
+Partie 2 = lance la grenade
+Partie 3 = relève son arme pour se mettre en Idle
+
+
+
+	De 515 à 550 (Transition entre les anims, sert à rien)
+
+
+
+Time Code, anim armes 2 mains (AK, M16) :
+
+
+- Idle : de 550 à 600
+
+
+	De 600 à 610 (Transition sert à rien)
+
+
+- Marche : de 610 à 660
+
+
+	De 660 à 673 (Trasition se met en pose de course peut servir)
+
+
+- Course : de 673 à 700
+
+
+	De 700 à 708 (Trasition se met en Idle peut servir)
+
+
+	De 708 à 715 (Transition sert à rien) 
+
+
+- Saut : de 715 à 750
+
+
+	De 750 à 760 (Transition sert à rien)
+
+
+- Tir sans visée : de 760 à 765
+
+
+	De 765 à 775 (Transition sert à rien)
+
+
+- Rechargement : de 775 à 825
+
+
+	De 825 à 835 (Transition sert à rien)
+
+
+- Mode Visée :
+
+	- Mettre visée : de 835 à 855
+	- Idle visée : de 855 à 885
+	- Tir avec visée : de 885 à 890
+	- Enlever visée : de 890 à 915
+
+
+	De 915 à 925 (Transition sert à rien)
+
+
+- Changement d'arme : de 925 à 970  
+
+	(partie 1 : de 925 à 940 / partie 2 : de 940 à 970)
+
+Partie 1 = baisse son arme pour la changer
+Partie 2 = relève son arme pour se mettre en Idle
+
+
+	De 970 à 980 (Transition sert à rien)
+
+
+- Lancer de grenade : de 980 à 1045    (pas besoin de séparer l'anim je pense)
+
+	(partie 1 : de 980 à 990 / partie 2 : de 990 à 1020 / partie 3 : de 1020 à 1045)
+
+Partie 1 = baisse son arme pour prendre la grenade
+Partie 2 = lance la grenade
+Partie 3 = relève son arme pour se mettre en Idle
+
+
+
+Les clés 410 et 940 sont les mêmes pour que le changement d'arme loop, si ont les utilisent, il faut bien commencer l'animation avec la partie 1 de l'arme qu'on a et on change d'anim avec la partie 2 de la nouvelle arme et ça devrait bien loop
