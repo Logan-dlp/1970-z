@@ -24,12 +24,16 @@ public class PlayerController : MonoBehaviour
     
     private bool jumpPerformed;
     private bool sprint = false;
+    
+    //Animatons:
+    private Animator animator;
 
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
         Playercam = GetComponentInChildren<Camera>().transform;
         Arms = GetComponentInChildren<WeaponsControls>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -47,18 +51,33 @@ public class PlayerController : MonoBehaviour
         velocity = _horizontalVelocity + _gravityVelocity * Vector3.up;
 
         TryJump();
-
+        
         Vector3 _move = transform.forward * velocity.z + transform.right * velocity.x + transform.up * velocity.y;
 
        if (sprint)
         {
             // Calcul du déplacement du joueur quand il court
             characterController.Move(_move * 2 * Time.deltaTime);
+            animator.SetBool("IsRunning", true);
+            animator.SetBool("Idle", false);
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsJumping", false);
         }
         else
         {
             // Calcul du déplacement du joueur quand il marche
             characterController.Move(_move * Time.deltaTime);
+            animator.SetBool("IsRunning", false);
+            animator.SetBool("Idle", true);
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsJumping", false);
+            if (moveInputs.magnitude > 0)
+            {
+                animator.SetBool("IsWalking", true);
+                animator.SetBool("Idle", false);
+                animator.SetBool("IsJumping", false);
+            }
+            Debug.Log("Magnitude: " + moveInputs.magnitude);
         }
     }
 
@@ -108,6 +127,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!jumpPerformed || !characterController.isGrounded) return;
         velocity.y += JumpForce;
+        animator.SetBool("IsJumping", true);
+        animator.SetBool("Idle", false);
         jumpPerformed = false;
     }
 
