@@ -127,15 +127,21 @@ public class PlayerController : MonoBehaviour
     {
         if (!jumpPerformed || !characterController.isGrounded) return;
         velocity.y += JumpForce;
-        animator.SetBool("IsJumping", true);
-        animator.SetBool("Idle", false);
         jumpPerformed = false;
+        animator.SetBool("IsJumping", false);
     }
 
     public void MovePerformed(InputAction.CallbackContext _ctx) => moveInputs = _ctx.ReadValue<Vector2>();
     public void RunPerformed(InputAction.CallbackContext _ctx) => sprint = _ctx.ReadValue<float>() > 0;
     public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
-    public void JumpPerformed(InputAction.CallbackContext _ctx) => jumpPerformed = _ctx.performed;
+    public void JumpPerformed(InputAction.CallbackContext _ctx)
+    {
+        jumpPerformed = _ctx.performed;
+        animator.SetBool("IsJumping", true);
+        animator.SetBool("Idle", false);
+        animator.SetBool("IsRunning", false);
+        animator.SetBool("IsWalking", false);
+    } 
     public void ShootPerformed(InputAction.CallbackContext _ctx) => Arms.TouchActivate = _ctx.performed;
     public void AimPerformed(InputAction.CallbackContext _ctx) => Arms.Aim();
     public void NoAimPerformed(InputAction.CallbackContext _ctx) => Arms.NoAim();

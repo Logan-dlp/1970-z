@@ -77,7 +77,7 @@ public class WeaponsControls : MonoBehaviour
     
     public void NoAim()
     {
-        camPlayer.fieldOfView = 60;
+        camPlayer.fieldOfView = 50;
     }
 
     public void RealoadArmes()
