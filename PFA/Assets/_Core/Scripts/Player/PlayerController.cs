@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Vector2 moveInputs, lookInputs;
     
-    private Transform Playercam;
+    [SerializeField] private Transform Playercam;
     private CharacterController characterController;
     private WeaponsControls Arms;
     
@@ -27,11 +27,11 @@ public class PlayerController : MonoBehaviour
     
     //Animatons:
     private Animator animator;
+    
 
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
-        Playercam = GetComponentInChildren<Camera>().transform;
         Arms = GetComponentInChildren<WeaponsControls>();
         animator = GetComponent<Animator>();
     }
@@ -143,9 +143,17 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsWalking", false);
     } 
     public void ShootPerformed(InputAction.CallbackContext _ctx) => Arms.TouchActivate = _ctx.performed;
-    public void AimPerformed(InputAction.CallbackContext _ctx) => Arms.Aim();
-    public void NoAimPerformed(InputAction.CallbackContext _ctx) => Arms.NoAim();
-    
+    public void AimPerformed(InputAction.CallbackContext _ctx)
+    {
+        Arms.Aim();
+        animator.SetBool("Aim", true);
+    } 
+    public void NoAimPerformed(InputAction.CallbackContext _ctx)
+    {
+        Arms.NoAim();
+        animator.SetBool("Aim", false);
+    }
+
     private void OnDisable()
     {
         AimPerformed();
