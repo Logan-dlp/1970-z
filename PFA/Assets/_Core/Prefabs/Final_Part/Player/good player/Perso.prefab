@@ -2724,6 +2724,7 @@ MonoBehaviour:
   JumpForce: 5
   Sensitivity: {x: 200, y: 200}
   Playercam: {fileID: 6444690781542082028}
+  DetonationVFX: {fileID: 0}
 --- !u!114 &2237440999806434526
 MonoBehaviour:
   m_ObjectHideFlags: 0

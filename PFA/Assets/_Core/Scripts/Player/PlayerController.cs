@@ -24,9 +24,11 @@ public class PlayerController : MonoBehaviour
     
     private bool jumpPerformed;
     private bool sprint = false;
+    private bool AimActive = false;
     
     //Animatons:
     private Animator animator;
+    [SerializeField] GameObject DetonationVFX;
     
 
     private void Start()
@@ -142,15 +144,39 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsRunning", false);
         animator.SetBool("IsWalking", false);
     } 
-    public void ShootPerformed(InputAction.CallbackContext _ctx) => Arms.TouchActivate = _ctx.performed;
+    public void ShootPerformed(InputAction.CallbackContext _ctx)
+    {
+        Arms.TouchActivate = _ctx.performed;
+        if (AimActive == true && Arms.TouchActivate)
+        {
+            animator.SetBool("ShootAim", true);
+            animator.SetBool("ShootNoAim", false);
+            DetonationVFX.SetActive(true);
+            
+        }
+        else
+        {
+            animator.SetBool("ShootNoAim", true);
+            animator.SetBool("ShootAim", false);
+            animator.SetBool("Idle", false);
+            DetonationVFX.SetActive(true);
+        }
+
+        if (Arms.TouchActivate == _ctx.canceled)
+        {
+            DetonationVFX.SetActive(false);
+        }
+    } 
     public void AimPerformed(InputAction.CallbackContext _ctx)
     {
         Arms.Aim();
+        AimActive = true;
         animator.SetBool("Aim", true);
     } 
     public void NoAimPerformed(InputAction.CallbackContext _ctx)
     {
         Arms.NoAim();
+        AimActive = false;
         animator.SetBool("Aim", false);
     }
 
