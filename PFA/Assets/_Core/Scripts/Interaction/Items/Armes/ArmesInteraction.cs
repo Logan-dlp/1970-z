@@ -21,7 +21,9 @@ public class ArmesInteraction : MonoBehaviour, IInteractable
             GameObject[] _tabWeapons = _player.GetComponent<Player>().Weapons;
             WeaponsOff(_tabWeapons);
             WeaponsTab(_tabWeapons).SetActive(true);
-            _player.GetComponentInChildren<WeaponsControls>().WeaponsData = Data;
+            WeaponsControls _weaponsControls = _player.GetComponentInChildren<WeaponsControls>();
+            _weaponsControls.WeaponsData = Data;
+            _weaponsControls.UpdateWeapons();
         }
     }
 

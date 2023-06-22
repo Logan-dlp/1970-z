@@ -79,6 +79,12 @@ public class WeaponsControls : MonoBehaviour
         camPlayer.fieldOfView = 50;
     }
 
+    public void UpdateWeapons()
+    {
+        RealoadArmes();
+        // animation changement d'arme
+    }
+
     public void RealoadArmes()
     {
         charge = WeaponsData.Charge;
