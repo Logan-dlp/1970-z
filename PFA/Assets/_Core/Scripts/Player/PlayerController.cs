@@ -27,9 +27,8 @@ public class PlayerController : MonoBehaviour
     private bool AimActive = false;
     
     //Animatons:
-    private Animator animator;
-    [SerializeField] GameObject DetonationVFX;
-    
+    public Animator animator;
+
 
     private void Start()
     {
@@ -151,20 +150,12 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("ShootAim", true);
             animator.SetBool("ShootNoAim", false);
-            DetonationVFX.SetActive(true);
-            
         }
         else
         {
             animator.SetBool("ShootNoAim", true);
             animator.SetBool("ShootAim", false);
             animator.SetBool("Idle", false);
-            DetonationVFX.SetActive(true);
-        }
-
-        if (Arms.TouchActivate == _ctx.canceled)
-        {
-            DetonationVFX.SetActive(false);
         }
     } 
     public void AimPerformed(InputAction.CallbackContext _ctx)
