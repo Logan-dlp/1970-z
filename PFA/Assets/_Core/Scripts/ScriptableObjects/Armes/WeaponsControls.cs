@@ -14,11 +14,13 @@ public class WeaponsControls : MonoBehaviour
     
     private int charge;
     private Camera camPlayer;
+    private Animator animator;
 
     private void Start()
     {
         camPlayer = GetComponent<Camera>();
-        RealoadArmes();
+        animator = GetComponentInParent<Animator>();
+        UpdateWeapons();
     }
 
     private void Update()
@@ -82,6 +84,8 @@ public class WeaponsControls : MonoBehaviour
     public void UpdateWeapons()
     {
         RealoadArmes();
+        Debug.Log(WeaponsData.automatic);
+        animator.SetBool("IsAutomatic", WeaponsData.automatic);
         // animation changement d'arme
     }
 

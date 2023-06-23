@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             // Calcul du déplacement du joueur quand il marche
             characterController.Move(_move * Time.deltaTime);
             animator.SetBool("IsRunning", false);
-            animator.SetBool("Idle", true);
+            animator.SetBool("Idle", false);
             animator.SetBool("IsWalking", false);
             animator.SetBool("IsJumping", false);
             if (moveInputs.magnitude > 0)
@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("IsWalking", true);
                 animator.SetBool("Idle", false);
                 animator.SetBool("IsJumping", false);
+
             }
             Debug.Log("Magnitude: " + moveInputs.magnitude);
         }
@@ -137,6 +138,7 @@ public class PlayerController : MonoBehaviour
     public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
     public void JumpPerformed(InputAction.CallbackContext _ctx)
     {
+        Debug.Log("input");
         jumpPerformed = _ctx.performed;
         animator.SetBool("IsJumping", true);
         animator.SetBool("Idle", false);
@@ -146,7 +148,7 @@ public class PlayerController : MonoBehaviour
     public void ShootPerformed(InputAction.CallbackContext _ctx)
     {
         Arms.TouchActivate = _ctx.performed;
-        if (AimActive == true && Arms.TouchActivate)
+        if (AimActive && Arms.TouchActivate)
         {
             animator.SetBool("ShootAim", true);
             animator.SetBool("ShootNoAim", false);

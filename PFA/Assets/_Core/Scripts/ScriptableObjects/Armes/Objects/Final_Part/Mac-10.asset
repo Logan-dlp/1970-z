@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ec010e792187e41af80518d5a58e1f, type: 3}
   m_Name: Mac-10
   m_EditorClassIdentifier: 
-  Name: 
+  Name: Mac-10
   Charge: 0
   RealoadTime: 0
   Damage: 0
   AutomaticTimeShoot: 0
-  automatic: 0
+  automatic: 1

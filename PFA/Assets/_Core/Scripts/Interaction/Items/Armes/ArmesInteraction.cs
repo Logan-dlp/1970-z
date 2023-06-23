@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(ItemsSettings))]
 public class ArmesInteraction : MonoBehaviour, IInteractable
 {
-    
     public GameObject Weapon;
     public WeaponsData Data;
     
