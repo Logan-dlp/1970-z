@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             // Calcul du déplacement du joueur quand il marche
             characterController.Move(_move * Time.deltaTime);
             animator.SetBool("IsRunning", false);
-            animator.SetBool("Idle", false);
+            animator.SetBool("Idle", true);
             animator.SetBool("IsWalking", false);
             animator.SetBool("IsJumping", false);
             if (moveInputs.magnitude > 0)
