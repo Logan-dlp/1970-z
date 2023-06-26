@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public Transform[] SpawnBossZombies;
     public GameObject[] BossZombies;
     public GameObject DoorFinal;
+    public int NbDoor = 3;
     
     public int NbLeverEnd;
     public string SceneGameOver;
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnZombie()
     {
-        if (InGame() && NbZombies <= 0)
+        if (InGame() && NbZombies == NbZombies/NbDoor)
         {
             NbManches++;
             foreach (Transform _spawnZombie in SpawnZombies)
