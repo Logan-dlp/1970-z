@@ -1398,6 +1398,7 @@ GameObject:
   - component: {fileID: 2087822814201301567}
   - component: {fileID: 1986437786096880448}
   - component: {fileID: 3193769070857886236}
+  - component: {fileID: 938360536913346293}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1536,6 +1537,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponsData: {fileID: 11400000, guid: 94a83d92542f4944fb5a1a64d1022f2b, type: 2}
   TouchActivate: 0
+--- !u!205 &938360536913346293
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5784304915180610369}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &5831490461755269087
 GameObject:
   m_ObjectHideFlags: 0
