@@ -1534,7 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c58cbeee65be12641a3f01ddf1b41e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponsData: {fileID: 11400000, guid: 1666d264ce70237459f531cb99c9e358, type: 2}
+  WeaponsData: {fileID: 11400000, guid: 94a83d92542f4944fb5a1a64d1022f2b, type: 2}
   TouchActivate: 0
 --- !u!1 &5831490461755269087
 GameObject:

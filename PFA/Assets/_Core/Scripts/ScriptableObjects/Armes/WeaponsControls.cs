@@ -35,16 +35,16 @@ public class WeaponsControls : MonoBehaviour
 
         if (charge > 0)
         {
-            if (WeaponsData.automatic == true)
+            if (WeaponsData.automatic)
             {
-                if (TouchActivate == true)
+                if (TouchActivate)
                 {
                     StartCoroutine("LapsTimeToShoot");
                 }
             }
             else
             {
-                if (TouchActivate == true)
+                if (TouchActivate)
                 {
                     Shoot();
                     TouchActivate = false;
