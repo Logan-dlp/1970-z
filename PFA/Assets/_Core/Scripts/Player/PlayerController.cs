@@ -18,18 +18,23 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private Vector2 moveInputs, lookInputs;
     
-    private Transform Playercam;
+    [SerializeField] private Transform Playercam;
     private CharacterController characterController;
     private WeaponsControls Arms;
     
     private bool jumpPerformed;
     private bool sprint = false;
+    private bool AimActive = false;
+    
+    //Animatons:
+    public Animator animator;
+
 
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
-        Playercam = GetComponentInChildren<Camera>().transform;
         Arms = GetComponentInChildren<WeaponsControls>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -47,18 +52,34 @@ public class PlayerController : MonoBehaviour
         velocity = _horizontalVelocity + _gravityVelocity * Vector3.up;
 
         TryJump();
-
+        
         Vector3 _move = transform.forward * velocity.z + transform.right * velocity.x + transform.up * velocity.y;
 
        if (sprint)
         {
             // Calcul du déplacement du joueur quand il court
             characterController.Move(_move * 2 * Time.deltaTime);
+            animator.SetBool("IsRunning", true);
+            animator.SetBool("Idle", false);
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsJumping", false);
         }
         else
         {
             // Calcul du déplacement du joueur quand il marche
             characterController.Move(_move * Time.deltaTime);
+            animator.SetBool("IsRunning", false);
+            animator.SetBool("Idle", true);
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsJumping", false);
+            if (moveInputs.magnitude > 0)
+            {
+                animator.SetBool("IsWalking", true);
+                animator.SetBool("Idle", false);
+                animator.SetBool("IsJumping", false);
+
+            }
+            Debug.Log("Magnitude: " + moveInputs.magnitude);
         }
     }
 
@@ -109,16 +130,49 @@ public class PlayerController : MonoBehaviour
         if (!jumpPerformed || !characterController.isGrounded) return;
         velocity.y += JumpForce;
         jumpPerformed = false;
+        animator.SetBool("IsJumping", false);
     }
 
     public void MovePerformed(InputAction.CallbackContext _ctx) => moveInputs = _ctx.ReadValue<Vector2>();
     public void RunPerformed(InputAction.CallbackContext _ctx) => sprint = _ctx.ReadValue<float>() > 0;
     public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
-    public void JumpPerformed(InputAction.CallbackContext _ctx) => jumpPerformed = _ctx.performed;
-    public void ShootPerformed(InputAction.CallbackContext _ctx) => Arms.TouchActivate = _ctx.performed;
-    public void AimPerformed(InputAction.CallbackContext _ctx) => Arms.Aim();
-    public void NoAimPerformed(InputAction.CallbackContext _ctx) => Arms.NoAim();
-    
+    public void JumpPerformed(InputAction.CallbackContext _ctx)
+    {
+        Debug.Log("input");
+        jumpPerformed = _ctx.performed;
+        animator.SetBool("IsJumping", true);
+        animator.SetBool("Idle", false);
+        animator.SetBool("IsRunning", false);
+        animator.SetBool("IsWalking", false);
+    } 
+    public void ShootPerformed(InputAction.CallbackContext _ctx)
+    {
+        Arms.TouchActivate = _ctx.performed;
+        if (AimActive && Arms.TouchActivate)
+        {
+            animator.SetBool("ShootAim", true);
+            animator.SetBool("ShootNoAim", false);
+        }
+        else
+        {
+            animator.SetBool("ShootNoAim", true);
+            animator.SetBool("ShootAim", false);
+            animator.SetBool("Idle", false);
+        }
+    } 
+    public void AimPerformed(InputAction.CallbackContext _ctx)
+    {
+        Arms.Aim();
+        AimActive = true;
+        animator.SetBool("Aim", true);
+    } 
+    public void NoAimPerformed(InputAction.CallbackContext _ctx)
+    {
+        Arms.NoAim();
+        AimActive = false;
+        animator.SetBool("Aim", false);
+    }
+
     private void OnDisable()
     {
         AimPerformed();

@@ -17,4 +17,4 @@ MonoBehaviour:
   RealoadTime: 0
   Damage: 0
   AutomaticTimeShoot: 0
-  automatic: 0
+  automatic: 1

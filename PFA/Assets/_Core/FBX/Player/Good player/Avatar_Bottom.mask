@@ -1,0 +1,262 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Avatar_Bottom
+  m_Mask: 01000000000000000000000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Bone Bassin
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Cou
+    m_Weight: 0
+  - m_Path: "Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Cou/Bone
+      T\xEAte"
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Annulaire L 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Annulaire L 1/3/Bone Annulaire
+      L 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Annulaire L 1/3/Bone Annulaire
+      L 2/3/Bone Annulaire L 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Auriculaire L 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Auriculaire L 1/3/Bone Auriculaire
+      L 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Auriculaire L 1/3/Bone Auriculaire
+      L 2/3/Bone Auriculaire L 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Index L 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Index L 1/3/Bone Index L 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Index L 1/3/Bone Index L 2/3/Bone
+      Index L 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Majeur L 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Majeur L 1/3/Bone Majeur L 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Majeur L 1/3/Bone Majeur L 2/3/Bone
+      Majeur L 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Pouce L 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Pouce L 1/3/Bone Pouce L 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Bone Poignet L/Bone Pouce L 1/3/Bone Pouce L 2/3/Bone
+      Pouce L 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Dummy Avant-bras L 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Dummy Avant-bras L 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule L/Bone
+      Biceps L/Bone Avant-bras L/Dummy Avant-bras L 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Annulaire R 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Annulaire R 1/3/Bone Annulaire
+      R 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Annulaire R 1/3/Bone Annulaire
+      R 2/3/Bone Annulaire R 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Auriculaire R 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Auriculaire R 1/3/Bone Auriculaire
+      R 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Auriculaire R 1/3/Bone Auriculaire
+      R 2/3/Bone Auriculaire R 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Index R 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Index R 1/3/Bone Index R 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Index R 1/3/Bone Index R 2/3/Bone
+      Index R 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Majeur R 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Majeur R 1/3/Bone Majeur R 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Majeur R 1/3/Bone Majeur R 2/3/Bone
+      Majeur R 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Pouce R 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Pouce R 1/3/Bone Pouce R 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Bone Poignet R/Bone Pouce R 1/3/Bone Pouce R 2/3/Bone
+      Pouce R 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Dummy Avant-bras R 1/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Dummy Avant-bras R 2/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Colone 1/Bone Colone 2/Bone Colone 3/Bone Epaule R/Bone
+      Biceps R/Bone Avant-bras R/Dummy Avant-bras R 3/3
+    m_Weight: 0
+  - m_Path: Bone Bassin/Bone Cuisse L
+    m_Weight: 1
+  - m_Path: Bone Bassin/Bone Cuisse L/Bone Tibia L
+    m_Weight: 1
+  - m_Path: Bone Bassin/Bone Cuisse L/Bone Tibia L/Bone Pied L
+    m_Weight: 1
+  - m_Path: Bone Bassin/Bone Cuisse L/Bone Tibia L/Bone Pied L/Bone Orteils L
+    m_Weight: 1
+  - m_Path: Bone Bassin/Bone Cuisse R
+    m_Weight: 1
+  - m_Path: Bone Bassin/Bone Cuisse R/Bone Tibia R
+    m_Weight: 1
+  - m_Path: Bone Bassin/Bone Cuisse R/Bone Tibia R/Bone Pied R
+    m_Weight: 1
+  - m_Path: Bone Bassin/Bone Cuisse R/Bone Tibia R/Bone Pied R/Bone Orteils R
+    m_Weight: 1
+  - m_Path: Controller Armes
+    m_Weight: 1
+  - m_Path: Controller Sol
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Bassin
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Bassin/Controller Colone 1
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Bassin/Controller Colone 1/Controller Colone
+      2
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Bassin/Controller Colone 1/Controller Colone
+      2/Controller Colone 3
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Bassin/Controller Colone 1/Controller Colone
+      2/Controller Colone 3/Controller Cou
+    m_Weight: 1
+  - m_Path: "Controller Sol/Controller Bassin/Controller Colone 1/Controller Colone
+      2/Controller Colone 3/Controller Cou/Controller T\xEAte"
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Bassin/Controller Colone 1/Controller Colone
+      2/Controller Colone 3/Controller Epaule L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Bassin/Controller Colone 1/Controller Colone
+      2/Controller Colone 3/Controller Epaule R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Coude L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Coude R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Genou L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Genou R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Pied L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Pied L/Controller Orteils L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Pied L/IK Cheville L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Pied R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Pied R/Controller Orteils R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Pied R/IK Cheville R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet L/Controller Annulaire L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet L/Controller Auriculaire L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet L/Controller Index L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet L/Controller Majeur L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet L/Controller Pouce L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet L/IK Poignet L
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet R/Controller Annulaire R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet R/Controller Auriculaire R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet R/Controller Index R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet R/Controller Majeur R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet R/Controller Pouce R
+    m_Weight: 1
+  - m_Path: Controller Sol/Controller Poignet R/IK Poignet R
+    m_Weight: 1
+  - m_Path: Perso
+    m_Weight: 1

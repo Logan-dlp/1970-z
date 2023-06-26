@@ -14,16 +14,19 @@ public class WeaponsControls : MonoBehaviour
     
     private int charge;
     private Camera camPlayer;
-    
+    private Animator animator;
+
     private void Start()
     {
         camPlayer = GetComponent<Camera>();
-        RealoadArmes();
+        animator = GetComponentInParent<Animator>();
+        UpdateWeapons();
     }
 
     private void Update()
     {
         RaycastHit hit;
+        Debug.DrawRay(camPlayer.transform.position, camPlayer.transform.forward * 100);
         if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, 100))
         {
             Debug.DrawRay(camPlayer.transform.position, camPlayer.transform.TransformDirection(Vector3.forward) * hit.distance,
@@ -32,16 +35,16 @@ public class WeaponsControls : MonoBehaviour
 
         if (charge > 0)
         {
-            if (WeaponsData.automatic == true)
+            if (WeaponsData.automatic)
             {
-                if (TouchActivate == true)
+                if (TouchActivate)
                 {
                     StartCoroutine("LapsTimeToShoot");
                 }
             }
             else
             {
-                if (TouchActivate == true)
+                if (TouchActivate)
                 {
                     Shoot();
                     TouchActivate = false;
@@ -71,12 +74,19 @@ public class WeaponsControls : MonoBehaviour
     public void Aim()
     {
         camPlayer.fieldOfView = 40;
-        Debug.Log("Aim");
     }
     
     public void NoAim()
     {
-        camPlayer.fieldOfView = 60;
+        camPlayer.fieldOfView = 50;
+    }
+
+    public void UpdateWeapons()
+    {
+        RealoadArmes();
+        Debug.Log(WeaponsData.automatic);
+        animator.SetBool("IsAutomatic", WeaponsData.automatic);
+        // animation changement d'arme
     }
 
     public void RealoadArmes()
