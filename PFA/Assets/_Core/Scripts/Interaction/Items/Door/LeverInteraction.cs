@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LeverInteraction : MonoBehaviour, IInteractable
 {
+    private Animator animator;
     private bool interactable = true;
     private GameManager gameManager;
     private ItemsSettings price;
@@ -12,6 +13,7 @@ public class LeverInteraction : MonoBehaviour, IInteractable
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        animator.GetComponent<Animator>();
         price = GetComponent<ItemsSettings>();
     }
 
@@ -19,6 +21,7 @@ public class LeverInteraction : MonoBehaviour, IInteractable
     {
         if (interactable)
         {
+            animator.SetBool("On", true);
             gameManager.Nblever++;
             interactable = false;
             price.Price = 0;
