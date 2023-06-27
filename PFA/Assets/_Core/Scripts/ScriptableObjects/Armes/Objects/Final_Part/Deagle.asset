@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Deagle
   m_EditorClassIdentifier: 
   Name: Deagle
-  Charge: 0
-  RealoadTime: 0
-  Damage: 0
+  Charge: 7
+  RealoadTime: 1
+  Damage: 8
   AutomaticTimeShoot: 0
   automatic: 0

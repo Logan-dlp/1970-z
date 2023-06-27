@@ -20,7 +20,7 @@ public class Zombies : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.baseOffset = 1;
+        agent.baseOffset = 0;
         agent.speed = DataSources.Speed;
         agent.angularSpeed = 100;
         agent.acceleration = 100;

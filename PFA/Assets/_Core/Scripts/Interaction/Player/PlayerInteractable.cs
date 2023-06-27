@@ -23,7 +23,7 @@ public class PlayerInteractable : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
         player = GetComponent<Player>();
-        playerCamera = GetComponentInChildren<Camera>();
+        playerCamera = GetComponentInChildren<WeaponsControls>().camPlayer;
         
         InputAction _interact = playerInput.actions["Interact"];
         _interact.performed += InteractPerformed;
@@ -33,6 +33,7 @@ public class PlayerInteractable : MonoBehaviour
 
     private void Update()
     {
+        Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * InteractRange);
         Ray _r = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
             if (Physics.Raycast(_r, out RaycastHit _hit, InteractRange))
             {

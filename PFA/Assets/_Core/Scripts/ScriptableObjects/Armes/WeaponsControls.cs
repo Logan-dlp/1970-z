@@ -13,11 +13,12 @@ public class WeaponsControls : MonoBehaviour
     public GameObject GrenadeFbx;
     private int grenadeForce = 800;
     public int NbGrenade = 3;
+    public GameObject[] VfxFire;
     [HideInInspector] public bool TouchActivate = false;
     private bool reloadweapons;
     
     [HideInInspector] public int Charge;
-    private Camera camPlayer;
+    [HideInInspector] public Camera camPlayer;
     private Animator animator;
 
     private void Start()
@@ -37,12 +38,14 @@ public class WeaponsControls : MonoBehaviour
     private void Update()
     {
         RaycastHit hit;
-        Debug.DrawRay(camPlayer.transform.position, camPlayer.transform.forward * 100);
+        //Debug.DrawRay(camPlayer.transform.position, camPlayer.transform.forward * 100);
+        /*
         if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, 100))
         {
             Debug.DrawRay(camPlayer.transform.position, camPlayer.transform.TransformDirection(Vector3.forward) * hit.distance,
                 Color.red);
         }
+        */
 
         if (Charge > 0)
         {
@@ -75,6 +78,7 @@ public class WeaponsControls : MonoBehaviour
 
     private void Shoot()
     {
+        StartCoroutine("VFXFire");
         Charge--;
         RaycastHit hit;
         if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, 100))
@@ -141,5 +145,18 @@ public class WeaponsControls : MonoBehaviour
     void RealoadWeaponsPerformed(InputAction.CallbackContext _ctx)
     {
         reloadweapons = true;
+    }
+
+    IEnumerator VFXFire()
+    {
+        for (int i = 0; i < VfxFire.Length; i++)
+        {
+            VfxFire[i].SetActive(true);
+        }
+        yield return new WaitForSeconds(.3f);
+        for (int i = 0; i < VfxFire.Length; i++)
+        {
+            VfxFire[i].SetActive(false);
+        }
     }
 }
