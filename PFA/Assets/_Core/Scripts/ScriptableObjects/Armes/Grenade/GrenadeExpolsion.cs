@@ -35,7 +35,6 @@ public class GrenadeExpolsion : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("ok");
         if (boom)
         {
             if (other.CompareTag("Zombies"))

@@ -5336,7 +5336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 4
-  JumpForce: 3
+  JumpForce: 5
   Sensitivity: {x: 200, y: 200}
   Playercam: {fileID: 6444690781542082028}
   animator: {fileID: 0}

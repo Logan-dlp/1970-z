@@ -171,19 +171,5 @@ public class PlayerController : MonoBehaviour
         AimActive = false;
         animator.SetBool("Aim", false);
     }
-
-    private void OnDisable()
-    {
-        AimPerformed();
-    }
     
-    private void OnEnable()
-    {
-        AimPerformed();
-    }
-
-    private void AimPerformed()
-    {
-        Arms.Aim();
-    }
 }
