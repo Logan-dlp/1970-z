@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
                 for (int i = 0; i < NbManches; i++)
                 {
                     Instantiate(Zombies[0], _spawnZombie);
+                    Instantiate(Zombies[1], _spawnZombie);
                     NbZombies++;
                 }
             }

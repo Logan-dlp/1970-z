@@ -80,6 +80,7 @@ public class Zombies : MonoBehaviour
             {
                 gameManager.NbBoss--;
             }
+            // annimation de mort...
             Destroy(gameObject);
         }
     }

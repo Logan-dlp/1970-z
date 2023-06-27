@@ -97,5 +97,6 @@ public class Player : MonoBehaviour
         UIText[0].text = Coin.ToString();
         UIText[1].text = weaponsControls.Charge.ToString() + "/∞";
         UIText[2].text = weaponsControls.NbGrenade.ToString();
+        UIText[3].text = gameManager.NbManches.ToString();
     }
 }
