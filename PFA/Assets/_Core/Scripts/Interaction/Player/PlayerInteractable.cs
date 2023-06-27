@@ -39,7 +39,7 @@ public class PlayerInteractable : MonoBehaviour
                 if (_hit.collider.gameObject.TryGetComponent(out IInteractable _interactable) && _hit.collider.gameObject.TryGetComponent(out ItemsSettings _itemsSettings))
                 {
                     InteractUI.SetActive(true);
-                    Text _priceText = PriceUI.GetComponent<Text>();
+                    Text _priceText = PriceUI.GetComponentInChildren<Text>();
                     _priceText.text = _itemsSettings.Price.ToString() + " $";
                     if (_itemsSettings.Price > 0)
                     {

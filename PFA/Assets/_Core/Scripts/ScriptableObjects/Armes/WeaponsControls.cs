@@ -10,9 +10,13 @@ using UnityEngine.UI;
 public class WeaponsControls : MonoBehaviour
 {
     public WeaponsData WeaponsData;
+    public GameObject GrenadeFbx;
+    private int grenadeForce = 800;
+    public int NbGrenade = 3;
     [HideInInspector] public bool TouchActivate = false;
+    private bool reloadweapons;
     
-    private int charge;
+    [HideInInspector] public int Charge;
     private Camera camPlayer;
     private Animator animator;
 
@@ -20,6 +24,13 @@ public class WeaponsControls : MonoBehaviour
     {
         camPlayer = GetComponent<Camera>();
         animator = GetComponentInParent<Animator>();
+
+        InputAction _grenade = GetComponentInParent<PlayerInput>().actions["Grenade"];
+        _grenade.performed += GrenadePerformed;
+
+        InputAction _Reaload = GetComponentInParent<PlayerInput>().actions["Reload"];
+        _Reaload.performed += RealoadWeaponsPerformed;
+        
         UpdateWeapons();
     }
 
@@ -33,7 +44,7 @@ public class WeaponsControls : MonoBehaviour
                 Color.red);
         }
 
-        if (charge > 0)
+        if (Charge > 0)
         {
             if (WeaponsData.automatic)
             {
@@ -55,12 +66,16 @@ public class WeaponsControls : MonoBehaviour
         {
             StartCoroutine("RealoadCharger");
         }
+
+        if (reloadweapons)
+        {
+            StartCoroutine("RealoadCharger");
+        }
     }
 
     private void Shoot()
     {
-        Debug.Log("Shoot");
-        charge--;
+        Charge--;
         RaycastHit hit;
         if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, 100))
         {
@@ -84,29 +99,25 @@ public class WeaponsControls : MonoBehaviour
     public void UpdateWeapons()
     {
         RealoadArmes();
-        Debug.Log(WeaponsData.automatic);
         animator.SetBool("IsAutomatic", WeaponsData.automatic);
         // animation changement d'arme
     }
 
     public void RealoadArmes()
     {
-        charge = WeaponsData.Charge;
+        Charge = WeaponsData.Charge;
     }
 
     public IEnumerator RealoadCharger()
     {
-        Debug.Log("Je rechage !");
         yield return new WaitForSeconds(WeaponsData.RealoadTime);
         RealoadArmes();
-        Debug.Log("c'est recharger !");
+        reloadweapons = false;
     }
 
     private void TakeDamage(Zombies _zombie)
     {
         _zombie.Life -= WeaponsData.Damage;
-        Debug.Log(_zombie.Life);
-        Debug.Log(charge);
         _zombie.Death(gameObject.GetComponentInParent<Player>());
     }
 
@@ -115,5 +126,20 @@ public class WeaponsControls : MonoBehaviour
         yield return new WaitForSeconds(WeaponsData.AutomaticTimeShoot);
         Shoot();
         StopCoroutine("LapsTimeToShoot");
+    }
+
+    void GrenadePerformed(InputAction.CallbackContext _ctx)
+    {
+        if (NbGrenade > 0)
+        {
+            NbGrenade--;
+            GameObject _instance = Instantiate(GrenadeFbx, transform.position, Quaternion.identity);
+            _instance.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward) * grenadeForce);
+        }
+    }
+
+    void RealoadWeaponsPerformed(InputAction.CallbackContext _ctx)
+    {
+        reloadweapons = true;
     }
 }
