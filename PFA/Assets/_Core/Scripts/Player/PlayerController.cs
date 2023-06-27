@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("IsJumping", false);
 
             }
-            Debug.Log("Magnitude: " + moveInputs.magnitude);
         }
     }
 
@@ -138,7 +137,6 @@ public class PlayerController : MonoBehaviour
     public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
     public void JumpPerformed(InputAction.CallbackContext _ctx)
     {
-        Debug.Log("input");
         jumpPerformed = _ctx.performed;
         animator.SetBool("IsJumping", true);
         animator.SetBool("Idle", false);
@@ -148,7 +146,8 @@ public class PlayerController : MonoBehaviour
     public void ShootPerformed(InputAction.CallbackContext _ctx)
     {
         Arms.TouchActivate = _ctx.performed;
-        if (AimActive && Arms.TouchActivate)
+        
+        if (AimActive)
         {
             animator.SetBool("ShootAim", true);
             animator.SetBool("ShootNoAim", false);

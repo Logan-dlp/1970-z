@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public GameObject[] WeaponsUis;
     public Texture2D[] HpImg;
     public RawImage HpUi;
+    public Text[] UIText;
 
     [HideInInspector] public float PlayerLife = 100;
     [HideInInspector] public int Coin = 0;
@@ -49,6 +50,8 @@ public class Player : MonoBehaviour
     void UpdateUI()
     {
         WeaponsUI();
+        HPUI();
+        TextUI();
     }
 
     void WeaponsUI()
@@ -86,5 +89,12 @@ public class Player : MonoBehaviour
         {
             HpUi.texture = HpImg[3];
         }
+    }
+
+    void TextUI()
+    {
+        UIText[0].text = Coin.ToString();
+        UIText[1].text = weaponsControls.Charge.ToString() + "/∞";
+        UIText[2].text = weaponsControls.NbGrenade.ToString();
     }
 }
