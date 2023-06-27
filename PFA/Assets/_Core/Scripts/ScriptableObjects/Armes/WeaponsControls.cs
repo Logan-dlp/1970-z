@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -21,9 +22,13 @@ public class WeaponsControls : MonoBehaviour
     [HideInInspector] public Camera camPlayer;
     private Animator animator;
 
-    private void Start()
+    private void Awake()
     {
         camPlayer = GetComponent<Camera>();
+    }
+
+    private void Start()
+    {
         animator = GetComponentInParent<Animator>();
 
         InputAction _grenade = GetComponentInParent<PlayerInput>().actions["Grenade"];

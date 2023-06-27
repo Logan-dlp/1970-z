@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
     public Text[] UIText;
 
     [HideInInspector] public float PlayerLife = 100;
-    [HideInInspector] public int Coin = 0;
+    
+    public int Coin = 0;
     
     private GameManager gameManager;
     private WeaponsControls weaponsControls;

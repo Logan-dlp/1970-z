@@ -2871,6 +2871,7 @@ MonoBehaviour:
   - {fileID: 314258477439962189}
   TouchActivate: 0
   Charge: 0
+  camPlayer: {fileID: 0}
 --- !u!1 &5831490461755269087
 GameObject:
   m_ObjectHideFlags: 0
@@ -5049,7 +5050,7 @@ MonoBehaviour:
   InteractUI: {fileID: 3408287821191488955}
   PriceUI: {fileID: 8457184235904734257}
   LackOfCoinUI: {fileID: 5919275719445926308}
-  InteractRange: 10
+  InteractRange: 100
 --- !u!114 &3475433498595172111
 MonoBehaviour:
   m_ObjectHideFlags: 0

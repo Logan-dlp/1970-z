@@ -174,6 +174,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65417038f3950b740b50d828745206f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  animator: {fileID: 0}
+  interactable: 1
+  gameManager: {fileID: 0}
+  price: {fileID: 0}
 --- !u!114 &6792347779273382705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8fb2a64140fbca42940692ab5fdee25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Price: 10
+  Price: 0
 --- !u!1 &8510113542604125121
 GameObject:
   m_ObjectHideFlags: 0

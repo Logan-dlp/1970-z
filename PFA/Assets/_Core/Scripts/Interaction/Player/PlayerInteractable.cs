@@ -15,7 +15,7 @@ public class PlayerInteractable : MonoBehaviour
     
     private PlayerInput playerInput;
     private Player player;
-    private Camera playerCamera;
+    [SerializeField] private Camera playerCamera;
 
     private bool interact = false;
 
@@ -33,7 +33,7 @@ public class PlayerInteractable : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * InteractRange);
+        Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * InteractRange, Color.red);
         Ray _r = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
             if (Physics.Raycast(_r, out RaycastHit _hit, InteractRange))
             {

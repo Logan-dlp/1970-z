@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     {
         if (InGame() && NbZombies == NbZombies/NbDoor)
         {
+            Debug.Log("Manche ++");
             NbManches++;
             foreach (Transform _spawnZombie in SpawnZombies)
             {
