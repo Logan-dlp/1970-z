@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController)), RequireComponent(typeof(PlayerController)), RequireComponent(typeof(PlayerInteractable)), RequireComponent(typeof(PlayerInput))]
@@ -24,9 +25,11 @@ public class Player : MonoBehaviour
     private GameManager gameManager;
     private WeaponsControls weaponsControls;
     private PlayerController playerController;
-    
+    [SerializeField] private Volume volume;
+
     private void Start()
     {
+        volume = GetComponentInChildren<Volume>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         weaponsControls = GetComponentInChildren<WeaponsControls>();
         playerController = GetComponent<PlayerController>();
@@ -98,5 +101,23 @@ public class Player : MonoBehaviour
         UIText[1].text = weaponsControls.Charge.ToString() + "/∞";
         UIText[2].text = weaponsControls.NbGrenade.ToString();
         UIText[3].text = gameManager.NbManches.ToString();
+    }
+
+    public void HaveDamage(float _damage)
+    {
+        PlayerLife -= _damage;
+        volume.weight = 1;
+        StartCoroutine(ElseFeatBack());
+    }
+
+    IEnumerator ElseFeatBack()
+    {
+        float _t = 0;
+        while (_t < 1)
+        {
+            volume.weight = Mathf.Lerp(1, 0, _t);
+            _t += Time.deltaTime;
+            yield return null;
+        }
     }
 }

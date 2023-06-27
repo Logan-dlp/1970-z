@@ -87,12 +87,18 @@ public class Zombies : MonoBehaviour
 
     IEnumerator DegatTime()
     {
-        if (Vector3.Distance(Player.transform.position, transform.position) <= agent.stoppingDistance)
+        if (Vector3.Distance(Player.transform.position, transform.position) <= 3)
         {
             ZombieDebout.SetBool("Attack", true);
             ZombieDebout.SetBool("Run", false);
             yield return new WaitForSeconds(DataSources.DegatTime);
-            Player.GetComponent<Player>().PlayerLife -= DataSources.Degat;
+            Player.GetComponent<Player>().HaveDamage(DataSources.Degat);
+            StopCoroutine("DegatTime");
+        }
+        else
+        {
+            ZombieDebout.SetBool("Attack", false);
+            ZombieDebout.SetBool("Run", true);
             StopCoroutine("DegatTime");
         }
     }
