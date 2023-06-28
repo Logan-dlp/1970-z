@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: AK-47
   m_EditorClassIdentifier: 
   Name: AK-47
-  Charge: 0
-  RealoadTime: 0
-  Damage: 0
-  AutomaticTimeShoot: 0
+  Charge: 30
+  RealoadTime: 1
+  Damage: 6
+  AutomaticTimeShoot: 0.2
   automatic: 1

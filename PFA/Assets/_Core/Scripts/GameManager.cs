@@ -58,12 +58,14 @@ public class GameManager : MonoBehaviour
     {
         if (InGame() && NbZombies == NbZombies/NbDoor)
         {
+            Debug.Log("Manche ++");
             NbManches++;
             foreach (Transform _spawnZombie in SpawnZombies)
             {
                 for (int i = 0; i < NbManches; i++)
                 {
                     Instantiate(Zombies[0], _spawnZombie);
+                    Instantiate(Zombies[1], _spawnZombie);
                     NbZombies++;
                 }
             }

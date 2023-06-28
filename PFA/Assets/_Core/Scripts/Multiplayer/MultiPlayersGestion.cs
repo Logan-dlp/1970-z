@@ -35,11 +35,9 @@ public class MultiPlayersGestion : MonoBehaviour
         gameManager.Player.Add(_obj.gameObject);
         if (NbPlayer == 1)
         {
-            _obj.gameObject.layer = LayerMask.NameToLayer("Player 1");
             player1cam = _obj.GetComponentInChildren<Camera>();
         }else if (NbPlayer == 2)
         {
-            _obj.gameObject.layer = LayerMask.NameToLayer("Player 2");
             player2cam = _obj.GetComponentInChildren<Camera>();
             player1cam.rect = new Rect(0, 0.5f, 1, 1);
             player2cam.rect = new Rect(0, -0.5f, 1, 1);

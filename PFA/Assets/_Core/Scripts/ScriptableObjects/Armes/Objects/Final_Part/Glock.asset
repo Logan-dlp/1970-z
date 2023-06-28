@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Glock
   m_EditorClassIdentifier: 
   Name: Glock
-  Charge: 0
-  RealoadTime: 0
-  Damage: 0
+  Charge: 13
+  RealoadTime: 1
+  Damage: 2
   AutomaticTimeShoot: 0
   automatic: 0

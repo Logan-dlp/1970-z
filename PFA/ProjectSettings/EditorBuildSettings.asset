@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: "Assets/_Core/Scenes/Int\xE9gration/Menu principal secours.unity"
+    guid: 4b2ed6b10a08ce545b145d6d485b5b50
+  - enabled: 1
     path: Assets/_Core/Scenes/map finale.unity
     guid: 2bfbee0271e6e8f4b9ca861ada43a180
+  - enabled: 1
+    path: "Assets/_Core/Scenes/Int\xE9gration/Menu controls.unity"
+    guid: 1bbb3311b9bbc77449e4b7ba2e079725
+  - enabled: 1
+    path: "Assets/_Core/Scenes/Int\xE9gration/Screen victory.unity"
+    guid: db10a32c758682644abe4eeb6aabb5de
+  - enabled: 1
+    path: "Assets/_Core/Scenes/Int\xE9gration/Screen death.unity"
+    guid: a17bb88461512a04a8bd029c33215120
   m_configObjects: {}

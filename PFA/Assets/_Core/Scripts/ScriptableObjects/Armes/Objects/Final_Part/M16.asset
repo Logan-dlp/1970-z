@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: M16
   m_EditorClassIdentifier: 
   Name: M16
-  Charge: 0
-  RealoadTime: 0
-  Damage: 0
-  AutomaticTimeShoot: 0
+  Charge: 30
+  RealoadTime: 1
+  Damage: 5
+  AutomaticTimeShoot: 0.2
   automatic: 1

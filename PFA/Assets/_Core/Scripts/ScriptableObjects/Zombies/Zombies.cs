@@ -20,7 +20,7 @@ public class Zombies : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        agent.baseOffset = 1;
+        agent.baseOffset = 0;
         agent.speed = DataSources.Speed;
         agent.angularSpeed = 100;
         agent.acceleration = 100;
@@ -80,18 +80,25 @@ public class Zombies : MonoBehaviour
             {
                 gameManager.NbBoss--;
             }
+            // annimation de mort...
             Destroy(gameObject);
         }
     }
 
     IEnumerator DegatTime()
     {
-        if (Vector3.Distance(Player.transform.position, transform.position) <= agent.stoppingDistance)
+        if (Vector3.Distance(Player.transform.position, transform.position) <= 3)
         {
             ZombieDebout.SetBool("Attack", true);
             ZombieDebout.SetBool("Run", false);
             yield return new WaitForSeconds(DataSources.DegatTime);
-            Player.GetComponent<Player>().PlayerLife -= DataSources.Degat;
+            Player.GetComponent<Player>().HaveDamage(DataSources.Degat);
+            StopCoroutine("DegatTime");
+        }
+        else
+        {
+            ZombieDebout.SetBool("Attack", false);
+            ZombieDebout.SetBool("Run", true);
             StopCoroutine("DegatTime");
         }
     }

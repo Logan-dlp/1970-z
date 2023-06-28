@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Mac-10
   m_EditorClassIdentifier: 
   Name: Mac-10
-  Charge: 0
-  RealoadTime: 0
-  Damage: 0
-  AutomaticTimeShoot: 0
+  Charge: 32
+  RealoadTime: 1
+  Damage: 3
+  AutomaticTimeShoot: 0.1
   automatic: 1
