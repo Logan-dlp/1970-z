@@ -21,6 +21,7 @@ public class WeaponsControls : MonoBehaviour
     [HideInInspector] public int Charge;
     [HideInInspector] public Camera camPlayer;
     private Animator animator;
+    private Player player;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class WeaponsControls : MonoBehaviour
 
     private void Start()
     {
+        player = GetComponentInParent<Player>();
         animator = GetComponentInParent<Animator>();
 
         InputAction _grenade = GetComponentInParent<PlayerInput>().actions["Grenade"];
@@ -38,20 +40,12 @@ public class WeaponsControls : MonoBehaviour
         _Reaload.performed += RealoadWeaponsPerformed;
         
         UpdateWeapons();
+        
+        player.HitMarker.SetActive(false);
     }
 
     private void Update()
     {
-        RaycastHit hit;
-        //Debug.DrawRay(camPlayer.transform.position, camPlayer.transform.forward * 100);
-        /*
-        if (Physics.Raycast(camPlayer.transform.position, camPlayer.transform.forward, out hit, 100))
-        {
-            Debug.DrawRay(camPlayer.transform.position, camPlayer.transform.TransformDirection(Vector3.forward) * hit.distance,
-                Color.red);
-        }
-        */
-
         if (Charge > 0)
         {
             if (WeaponsData.automatic)
@@ -90,6 +84,7 @@ public class WeaponsControls : MonoBehaviour
         {
             if (hit.collider.gameObject.GetComponent<Zombies>())
             {
+                StartCoroutine(HitMarker());
                 TakeDamage(hit.transform.gameObject.GetComponent<Zombies>());
             }
         }
@@ -163,5 +158,13 @@ public class WeaponsControls : MonoBehaviour
         {
             VfxFire[i].SetActive(false);
         }
+    }
+
+    IEnumerator HitMarker()
+    {
+        player.HitMarker.SetActive(true);
+        yield return new WaitForSeconds(.3f);
+        player.HitMarker.SetActive(false);
+        StopCoroutine(HitMarker());
     }
 }

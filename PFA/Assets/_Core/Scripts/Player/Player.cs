@@ -17,15 +17,16 @@ public class Player : MonoBehaviour
     public Texture2D[] HpImg;
     public RawImage HpUi;
     public Text[] UIText;
+    public GameObject HitMarker;
 
     [HideInInspector] public float PlayerLife = 100;
     
-    public int Coin = 0;
+    [HideInInspector] public int Coin = 0;
     
     private GameManager gameManager;
     private WeaponsControls weaponsControls;
     private PlayerController playerController;
-    [SerializeField] private Volume volume;
+    private Volume volume;
 
     private void Start()
     {
