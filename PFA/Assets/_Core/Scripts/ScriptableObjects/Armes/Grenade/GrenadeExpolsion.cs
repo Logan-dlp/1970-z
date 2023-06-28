@@ -15,6 +15,7 @@ public class GrenadeExpolsion : MonoBehaviour
     [SerializeField] GameObject explosionVFX;
     private Rigidbody rb;
     private MeshRenderer meshRenderer;
+    [HideInInspector] public Player Player;
     
     
     private void Awake()
@@ -39,7 +40,8 @@ public class GrenadeExpolsion : MonoBehaviour
         {
             if (other.CompareTag("Zombies"))
             {
-                Destroy(other.gameObject);
+                other.GetComponent<Zombies>().Life -= 100;
+                other.GetComponent<Zombies>().Death(Player);
             }
         }
     }

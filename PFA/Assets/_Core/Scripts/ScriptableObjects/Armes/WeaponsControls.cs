@@ -138,6 +138,7 @@ public class WeaponsControls : MonoBehaviour
         {
             NbGrenade--;
             GameObject _instance = Instantiate(GrenadeFbx, transform.position, Quaternion.identity);
+            _instance.GetComponent<GrenadeExpolsion>().Player = player;
             _instance.GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.forward) * grenadeForce);
         }
     }
