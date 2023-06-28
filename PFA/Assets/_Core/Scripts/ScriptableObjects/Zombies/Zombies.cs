@@ -34,6 +34,7 @@ public class Zombies : MonoBehaviour
     private void Start()
     {
         Life = DataSources.Life;
+        gameManager.NbZombies++;
     }
 
     private void Update()

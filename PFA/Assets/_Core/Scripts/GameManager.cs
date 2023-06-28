@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
     
     [HideInInspector] public int NbZombies = 0;
     [HideInInspector] public int NbBoss = 0;
-    [HideInInspector] public int NbManches = 0;
+     public int NbManches = 0;
     [HideInInspector] public int Nblever = 0;
-    
+
     private MultiPlayersGestion multiPlayersGestion;
     private SceneManager sceneManager;
 
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnZombie()
     {
-        if (InGame() && NbZombies == NbZombies/NbDoor)
+        if (InGame() && NbZombies <= SpawnZombies.Length * NbManches)
         {
             Debug.Log("Manche ++");
             NbManches++;
@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour
                 {
                     Instantiate(Zombies[0], _spawnZombie);
                     Instantiate(Zombies[1], _spawnZombie);
-                    NbZombies++;
                 }
             }
         }

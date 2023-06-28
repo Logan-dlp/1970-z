@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     [HideInInspector] public float PlayerLife = 100;
     
-    [HideInInspector] public int Coin = 0;
+    public int Coin = 0;
     
     private GameManager gameManager;
     private WeaponsControls weaponsControls;
