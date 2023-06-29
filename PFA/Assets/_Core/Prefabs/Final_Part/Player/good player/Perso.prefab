@@ -606,7 +606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.119, y: 0.8477408}
   m_AnchorMax: {x: 0.21329165, y: 1}
-  m_AnchoredPosition: {x: 1438.5115, y: -844.0352}
+  m_AnchoredPosition: {x: 1438.5115, y: -844.0353}
   m_SizeDelta: {x: -2.4596, y: 13.5403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7809714422628258648
@@ -816,7 +816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.119, y: 0.8477408}
   m_AnchorMax: {x: 0.21329165, y: 1}
-  m_AnchoredPosition: {x: 1438.5115, y: -844.0352}
+  m_AnchoredPosition: {x: 1438.5115, y: -844.0353}
   m_SizeDelta: {x: -2.4596, y: 13.5403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6972640732984349058
@@ -1557,7 +1557,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.119, y: 0.8477408}
   m_AnchorMax: {x: 0.21329165, y: 1}
-  m_AnchoredPosition: {x: 1438.5115, y: -844.0352}
+  m_AnchoredPosition: {x: 1438.5115, y: -844.0353}
   m_SizeDelta: {x: -2.4596, y: 13.5403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6670517376204717333
@@ -3829,8 +3829,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 0
-  priority: 0
-  blendDistance: 0
+  priority: -1
+  blendDistance: 1.54
   weight: 0
   sharedProfile: {fileID: 11400000, guid: c51d0bac39f268541937bda890bbbe39, type: 2}
 --- !u!65 &6222165895986454710
@@ -3921,7 +3921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.119, y: 0.8477408}
   m_AnchorMax: {x: 0.21329165, y: 1}
-  m_AnchoredPosition: {x: 1438.5115, y: -844.0352}
+  m_AnchoredPosition: {x: 1438.5115, y: -844.0353}
   m_SizeDelta: {x: -2.4596, y: 13.5403}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6247445431665624070
@@ -5475,7 +5475,6 @@ MonoBehaviour:
   HitMarker: {fileID: 8274681949402059148}
   PlayerLife: 100
   Coin: 0
-  volume: {fileID: 2134700712174232057}
 --- !u!1 &8907865303589898893
 GameObject:
   m_ObjectHideFlags: 0
