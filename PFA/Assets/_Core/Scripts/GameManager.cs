@@ -76,15 +76,9 @@ public class GameManager : MonoBehaviour
         if (Nblever == NbLeverEnd)
         {
             Destroy(DoorFinal);
-            
-            for (int i = 0; i < SpawnBossZombies.Length; i++)
-            {
-                for (int j = 0; j < BossZombies.Length; j++)
-                {
-                    Instantiate(BossZombies[j], SpawnBossZombies[i]);
-                    NbBoss++;
-                }
-            }
+
+            Instantiate(BossZombies[0], SpawnBossZombies[0]);
+            NbBoss++;
         }
     }
 }
