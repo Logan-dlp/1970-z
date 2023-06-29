@@ -5475,7 +5475,6 @@ MonoBehaviour:
   HitMarker: {fileID: 8274681949402059148}
   PlayerLife: 100
   Coin: 0
-  volume: {fileID: 2134700712174232057}
 --- !u!1 &8907865303589898893
 GameObject:
   m_ObjectHideFlags: 0
