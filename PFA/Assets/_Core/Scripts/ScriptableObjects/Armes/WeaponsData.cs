@@ -16,4 +16,6 @@ public class WeaponsData : ScriptableObject
     public float AutomaticTimeShoot;
     
     public bool automatic;
+
+    public AudioClip SD_Weapons;
 }
