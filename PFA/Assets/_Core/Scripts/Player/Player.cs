@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
     public void HaveDamage(float _damage)
     {
         PlayerLife -= _damage;
+        // Mettre les 2 sons de dégats
         volume.weight = 1;
         StartCoroutine(ElseFeatBack());
     }

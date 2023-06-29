@@ -18,3 +18,4 @@ MonoBehaviour:
   Damage: 8
   AutomaticTimeShoot: 0
   automatic: 0
+  SD_Weapons: {fileID: 8300000, guid: cf2b2b4fca0a5014ba31fedcd4b17696, type: 3}

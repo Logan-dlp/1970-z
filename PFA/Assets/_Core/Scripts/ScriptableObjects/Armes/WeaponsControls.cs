@@ -23,6 +23,8 @@ public class WeaponsControls : MonoBehaviour
     private Animator animator;
     private Player player;
 
+    private AudioSource audioSource;
+
     private void Awake()
     {
         camPlayer = GetComponent<Camera>();
@@ -30,6 +32,8 @@ public class WeaponsControls : MonoBehaviour
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        
         player = GetComponentInParent<Player>();
         animator = GetComponentInParent<Animator>();
 
@@ -46,6 +50,7 @@ public class WeaponsControls : MonoBehaviour
 
     private void Update()
     {
+        audioSource.clip = WeaponsData.SD_Weapons;
         if (Charge > 0)
         {
             if (WeaponsData.automatic)
@@ -60,6 +65,7 @@ public class WeaponsControls : MonoBehaviour
                 if (TouchActivate)
                 {
                     Shoot();
+                    audioSource.Play();
                     TouchActivate = false;
                 }
             }
