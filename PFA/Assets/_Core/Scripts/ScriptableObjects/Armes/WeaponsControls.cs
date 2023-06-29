@@ -58,6 +58,7 @@ public class WeaponsControls : MonoBehaviour
                 if (TouchActivate)
                 {
                     StartCoroutine("LapsTimeToShoot");
+                    audioSource.Play();
                 }
             }
             else
