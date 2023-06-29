@@ -26,8 +26,9 @@ public class PlayerController : MonoBehaviour
     private bool sprint = false;
     private bool AimActive = false;
     
-    //Animatons:
     public Animator animator;
+
+    public AudioSource SD_BreathRun;
 
 
     private void Start()
@@ -72,12 +73,12 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Idle", true);
             animator.SetBool("IsWalking", false);
             animator.SetBool("IsJumping", false);
+
             if (moveInputs.magnitude > 0)
             {
                 animator.SetBool("IsWalking", true);
                 animator.SetBool("Idle", false);
                 animator.SetBool("IsJumping", false);
-
             }
         }
     }
@@ -133,7 +134,11 @@ public class PlayerController : MonoBehaviour
     }
 
     public void MovePerformed(InputAction.CallbackContext _ctx) => moveInputs = _ctx.ReadValue<Vector2>();
-    public void RunPerformed(InputAction.CallbackContext _ctx) => sprint = _ctx.ReadValue<float>() > 0;
+    public void RunPerformed(InputAction.CallbackContext _ctx)
+    {
+        sprint = _ctx.ReadValue<float>() > 0;
+        SD_BreathRun.Play();
+    } 
     public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
     public void JumpPerformed(InputAction.CallbackContext _ctx)
     {
@@ -142,6 +147,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Idle", false);
         animator.SetBool("IsRunning", false);
         animator.SetBool("IsWalking", false);
+        SD_BreathRun.Stop();
     } 
     public void ShootPerformed(InputAction.CallbackContext _ctx)
     {
