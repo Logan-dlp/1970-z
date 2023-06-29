@@ -60,9 +60,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _Bend_Strength: 3.04
+    - _Metallic: 0
     - _Noise_Scale: 10
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Smoothness: 0.1
     - _Speed: 0.1
     m_Colors:
     - _Direction: {r: 2, g: 0, b: 0, a: 0}
