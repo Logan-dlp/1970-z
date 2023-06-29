@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SD_Houses : MonoBehaviour
 {
-    public AudioSource audioSource;
+    public AudioSource audioSourceLeft;
+    public AudioSource audioSourceRight;
     private bool hasEntered = false;
 
     private void OnTriggerEnter(Collider other)
@@ -16,13 +17,15 @@ public class SD_Houses : MonoBehaviour
             if (!hasEntered)
             {
                 // Si l'AudioSource n'a pas encore été démarré, démarrer la lecture
-                audioSource.Play();
+                audioSourceLeft.Play();
+                audioSourceRight.Play();
                 hasEntered = true;
             }
             else
             {
                 // Si l'AudioSource a déjà été démarré, arrêter la lecture
-                audioSource.Stop();
+                audioSourceLeft.Stop();
+                audioSourceRight.Play();
                 hasEntered = false;
             }
         }
