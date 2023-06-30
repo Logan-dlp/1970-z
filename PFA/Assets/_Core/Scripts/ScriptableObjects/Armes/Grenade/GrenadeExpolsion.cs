@@ -55,6 +55,6 @@ public class GrenadeExpolsion : MonoBehaviour
         meshRenderer.enabled = false;
         explosionVFX.SetActive(true);
         SD_Explosion.Play();
-        Destroy(gameObject, 2);
+        Destroy(gameObject, .5235f);
     }
 }

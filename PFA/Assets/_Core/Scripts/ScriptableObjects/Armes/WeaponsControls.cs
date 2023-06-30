@@ -65,6 +65,7 @@ public class WeaponsControls : MonoBehaviour
                 if (TouchActivate)
                 {
                     Shoot();
+                    audioSource.Play();
                     TouchActivate = false;
                 }
             }
@@ -93,7 +94,6 @@ public class WeaponsControls : MonoBehaviour
                 TakeDamage(hit.transform.gameObject.GetComponent<Zombies>());
             }
         }
-        audioSource.Play();
     }
 
     public void Aim()
@@ -135,7 +135,7 @@ public class WeaponsControls : MonoBehaviour
     {
         yield return new WaitForSeconds(WeaponsData.AutomaticTimeShoot);
         Shoot();
-        audioSource.Stop();
+        audioSource.Play();
         StopCoroutine("LapsTimeToShoot");
     }
 
