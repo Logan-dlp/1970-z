@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int Nblever = 0;
 
     private MultiPlayersGestion multiPlayersGestion;
-    private SceneManager sceneManager;
+    public SceneManager sceneManager;
 
     private void Start()
     {
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnBoss()
     {
-        if (Nblever == NbLeverEnd && InGame() && NbBoss < 0)
+        if (Nblever == NbLeverEnd && InGame() && NbBoss <= 0)
         {
             Destroy(DoorFinal);
 
