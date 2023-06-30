@@ -16,6 +16,7 @@ public class GrenadeExpolsion : MonoBehaviour
     private Rigidbody rb;
     private MeshRenderer meshRenderer;
     [HideInInspector] public Player Player;
+    public AudioSource SD_Explosion;
     
     
     private void Awake()
@@ -53,6 +54,7 @@ public class GrenadeExpolsion : MonoBehaviour
         rb.isKinematic = true;
         meshRenderer.enabled = false;
         explosionVFX.SetActive(true);
+        SD_Explosion.Play();
         Destroy(gameObject, 2);
     }
 }

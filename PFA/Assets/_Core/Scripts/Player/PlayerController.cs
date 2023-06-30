@@ -28,7 +28,9 @@ public class PlayerController : MonoBehaviour
     
     public Animator animator;
 
-    public AudioSource SD_BreathRun;
+    public AudioClip SD_BreathRun;
+    public AudioSource SD_WalkL;
+    public AudioSource SD_WalkR;
 
 
     private void Start()
@@ -76,6 +78,9 @@ public class PlayerController : MonoBehaviour
 
             if (moveInputs.magnitude > 0)
             {
+                SD_WalkR.Play(1);
+                SD_WalkL.Play(1);
+                
                 animator.SetBool("IsWalking", true);
                 animator.SetBool("Idle", false);
                 animator.SetBool("IsJumping", false);
@@ -137,7 +142,6 @@ public class PlayerController : MonoBehaviour
     public void RunPerformed(InputAction.CallbackContext _ctx)
     {
         sprint = _ctx.ReadValue<float>() > 0;
-        SD_BreathRun.Play();
     } 
     public void LookPerformed(InputAction.CallbackContext _ctx) => lookInputs = _ctx.ReadValue<Vector2>();
     public void JumpPerformed(InputAction.CallbackContext _ctx)
@@ -147,7 +151,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Idle", false);
         animator.SetBool("IsRunning", false);
         animator.SetBool("IsWalking", false);
-        SD_BreathRun.Stop();
     } 
     public void ShootPerformed(InputAction.CallbackContext _ctx)
     {
