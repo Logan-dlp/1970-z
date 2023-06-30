@@ -79,7 +79,7 @@ public class Zombies : MonoBehaviour
             _player.Coin += DataSources.Awards;
             if (DataSources.IsBoss)
             {
-                gameManager.NbBoss--;
+                gameManager.sceneManager.Load(gameManager.SceneWin);
             }
             // annimation de mort...
             Destroy(gameObject);
