@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     private bool AimActive = false;
     
     public Animator animator;
+    
+    public AudioSource audioSource;
 
 
     private void Start()
@@ -34,6 +36,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Arms = GetComponentInChildren<WeaponsControls>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()

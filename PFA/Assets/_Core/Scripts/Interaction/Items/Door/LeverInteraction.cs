@@ -10,6 +10,7 @@ public class LeverInteraction : MonoBehaviour, IInteractable
     private Animator animator;
     private GameManager gameManager;
     private BoxCollider collider;
+    public AudioSource audioSource;
 
     private void Start()
     {
@@ -26,5 +27,6 @@ public class LeverInteraction : MonoBehaviour, IInteractable
         gameManager.Nblever++;
         material.SetFloat("_Power", 100);
         collider.enabled = false;
+        audioSource.Play();
     }
 }

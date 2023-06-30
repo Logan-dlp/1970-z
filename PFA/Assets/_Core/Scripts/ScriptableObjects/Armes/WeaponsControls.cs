@@ -58,7 +58,6 @@ public class WeaponsControls : MonoBehaviour
                 if (TouchActivate)
                 {
                     StartCoroutine("LapsTimeToShoot");
-                    audioSource.Play();
                 }
             }
             else
@@ -66,7 +65,6 @@ public class WeaponsControls : MonoBehaviour
                 if (TouchActivate)
                 {
                     Shoot();
-                    audioSource.Play();
                     TouchActivate = false;
                 }
             }
@@ -74,13 +72,11 @@ public class WeaponsControls : MonoBehaviour
         else
         {
             StartCoroutine("RealoadCharger");
-            audioSource.Stop();
         }
 
         if (reloadweapons)
         {
             StartCoroutine("RealoadCharger");
-            audioSource.Stop();
         }
     }
 
@@ -97,6 +93,7 @@ public class WeaponsControls : MonoBehaviour
                 TakeDamage(hit.transform.gameObject.GetComponent<Zombies>());
             }
         }
+        audioSource.Play();
     }
 
     public void Aim()
@@ -138,6 +135,7 @@ public class WeaponsControls : MonoBehaviour
     {
         yield return new WaitForSeconds(WeaponsData.AutomaticTimeShoot);
         Shoot();
+        audioSource.Stop();
         StopCoroutine("LapsTimeToShoot");
     }
 
@@ -155,6 +153,7 @@ public class WeaponsControls : MonoBehaviour
     void RealoadWeaponsPerformed(InputAction.CallbackContext _ctx)
     {
         reloadweapons = true;
+        audioSource.Stop();
     }
 
     IEnumerator VFXFire()

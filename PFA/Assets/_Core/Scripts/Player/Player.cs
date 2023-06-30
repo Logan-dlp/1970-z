@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     private PlayerController playerController;
     private Volume volume;
 
+    public AudioSource audiodamage;
+
     private void Start()
     {
         volume = GetComponentInChildren<Volume>();
@@ -108,6 +110,7 @@ public class Player : MonoBehaviour
     {
         PlayerLife -= _damage;
         // Mettre les 2 sons de dégats
+        audiodamage.Play();
         volume.weight = 1;
         StartCoroutine(ElseFeatBack());
     }
