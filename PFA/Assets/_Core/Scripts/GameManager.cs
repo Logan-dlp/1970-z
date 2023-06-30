@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnBoss()
     {
-        if (Nblever == NbLeverEnd)
+        if (Nblever == NbLeverEnd && InGame() && NbBoss < 0)
         {
             Destroy(DoorFinal);
 
