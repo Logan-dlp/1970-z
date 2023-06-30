@@ -4121,11 +4121,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1bfdb3f66b3927944bdc11daec29f474, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a6885dd03ae81354197cb1b7692a2d19, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -5770,8 +5770,7 @@ MonoBehaviour:
   Playercam: {fileID: 6444690781542082028}
   animator: {fileID: 0}
   SD_BreathRun: {fileID: 4041077157804628954}
-  SD_WalkL: {fileID: 2005184160806508059}
-  SD_WalkR: {fileID: 0}
+  SD_Walk: {fileID: 0}
 --- !u!114 &2237440999806434526
 MonoBehaviour:
   m_ObjectHideFlags: 0

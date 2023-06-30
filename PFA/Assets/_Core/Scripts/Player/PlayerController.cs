@@ -28,10 +28,6 @@ public class PlayerController : MonoBehaviour
     
     public Animator animator;
 
-    public AudioClip SD_BreathRun;
-    public AudioSource SD_WalkL;
-    public AudioSource SD_WalkR;
-
 
     private void Start()
     {
@@ -78,9 +74,6 @@ public class PlayerController : MonoBehaviour
 
             if (moveInputs.magnitude > 0)
             {
-                SD_WalkR.Play(1);
-                SD_WalkL.Play(1);
-                
                 animator.SetBool("IsWalking", true);
                 animator.SetBool("Idle", false);
                 animator.SetBool("IsJumping", false);
@@ -138,7 +131,10 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("IsJumping", false);
     }
 
-    public void MovePerformed(InputAction.CallbackContext _ctx) => moveInputs = _ctx.ReadValue<Vector2>();
+    public void MovePerformed(InputAction.CallbackContext _ctx)
+    {
+        moveInputs = _ctx.ReadValue<Vector2>();
+    } 
     public void RunPerformed(InputAction.CallbackContext _ctx)
     {
         sprint = _ctx.ReadValue<float>() > 0;

@@ -58,6 +58,7 @@ public class WeaponsControls : MonoBehaviour
                 if (TouchActivate)
                 {
                     StartCoroutine("LapsTimeToShoot");
+                    audioSource.Play();
                 }
             }
             else
@@ -73,11 +74,13 @@ public class WeaponsControls : MonoBehaviour
         else
         {
             StartCoroutine("RealoadCharger");
+            audioSource.Stop();
         }
 
         if (reloadweapons)
         {
             StartCoroutine("RealoadCharger");
+            audioSource.Stop();
         }
     }
 
